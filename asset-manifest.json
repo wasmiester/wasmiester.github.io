@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.805b165c.chunk.css",
+    "main.js": "/static/js/main.c5a5ef8a.chunk.js",
+    "main.js.map": "/static/js/main.c5a5ef8a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.172c5414.js",
+    "runtime-main.js.map": "/static/js/runtime-main.172c5414.js.map",
+    "static/js/2.4fd0982a.chunk.js": "/static/js/2.4fd0982a.chunk.js",
+    "static/js/2.4fd0982a.chunk.js.map": "/static/js/2.4fd0982a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.805b165c.chunk.css.map": "/static/css/main.805b165c.chunk.css.map",
+    "static/js/2.4fd0982a.chunk.js.LICENSE.txt": "/static/js/2.4fd0982a.chunk.js.LICENSE.txt",
+    "static/media/DouglasCollege.8acd464f.png": "/static/media/DouglasCollege.8acd464f.png",
+    "static/media/ProfilePic.fef34457.jpg": "/static/media/ProfilePic.fef34457.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.172c5414.js",
+    "static/js/2.4fd0982a.chunk.js",
+    "static/css/main.805b165c.chunk.css",
+    "static/js/main.c5a5ef8a.chunk.js"
+  ]
+}
