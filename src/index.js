@@ -52,7 +52,8 @@ function Coolio() {
   var NumberOfColumns = parseInt(width / 100) + 1;
   var NumberOfRows = parseInt(height / 100) + 1;
   var NumberOfSquares = NumberOfColumns * NumberOfRows;
-  GridWave["--grid-template-columns"] = "repeat(" + NumberOfColumns + ", 100px)";
+  GridWave["--grid-template-columns"] =
+    "repeat(" + NumberOfColumns + ", 100px)";
   GridWave["--grid-template-rows"] = "repeat(" + NumberOfRows + ", 100px)";
 
   console.log("squares = " + NumberOfSquares);
@@ -60,8 +61,8 @@ function Coolio() {
   console.log(height + " rows = " + NumberOfRows);
 
   var midButtinArray = [];
-  midButtinArray["top"] = (height / 2) - 25+ "px";
-  midButtinArray["left"] = (width / 2) - 110 + "px";
+  midButtinArray["top"] = height / 2 - 25 + "px";
+  midButtinArray["left"] = width / 2 - 110 + "px";
   console.log(midButtinArray);
   for (var i = 0; i < NumberOfSquares; i++) {
     GridBoxes.push(<div className="square" id="tiles" />);
@@ -73,7 +74,7 @@ function Coolio() {
         className="WelcomeButton glow-on-hover"
         id="WelcomeBtn"
         style={midButtinArray}
-        onClick={() =>WelcomeHome(NumberOfColumns, NumberOfRows)}
+        onClick={() => WelcomeHome(NumberOfColumns, NumberOfRows)}
       >
         Hello World!
       </button>
@@ -86,12 +87,11 @@ function Coolio() {
 
 ReactDOM.render(<Coolio />, document.getElementById("boxes"));
 
-function blah(){
+function blah() {
   document
     .getElementById("WelcomeBtn")
     .addEventListener("click", WelcomeHome, false);
 }
-  
 
 //document.getElementById("WelcomeBtn").onclick = console.log(document.querySelectorAll("#tiles"));
 
@@ -247,11 +247,7 @@ Signalz.prototype.draw = function () {
   }
 };
 
-
-
-
 function WelcomeHome(NumberOfColumns, NumberOfRows) {
-
   anime({
     targets: document.querySelectorAll("#tiles"),
     scale: [{ value: 0, easing: "easeOutSine", duration: 500 }],
@@ -294,32 +290,53 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
           />
 
           <div className="ContactFlexBox">
-            <div className="ContactBox tooltip" href="https://github.com/wasmiester">
+            <a
+              className="ContactBox tooltip"
+              href="https://github.com/wasmiester"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FontAwesomeIcon
                 icon={["fab", "github"]}
                 className="ContactIcon"
               />
               <span class="tooltiptext">Github</span>
-            </div>
-            <div className="ContactBox tooltip" href="https://www.linkedin.com/in/wasi-raza/">
+            </a>
+            <a
+              className="ContactBox tooltip"
+              href="https://www.linkedin.com/in/wasi-raza/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FontAwesomeIcon
                 icon={["fab", "linkedin"]}
                 className="ContactIcon"
               />
               <span class="tooltiptext">Linkedin</span>
-            </div>
-            <div className="ContactBox tooltip"  href="mailto:wasiulhassanraza@gmail.com">
+            </a>
+            <a
+              className="ContactBox tooltip"
+              href="mailto:wasiulhassanraza@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FontAwesomeIcon icon="envelope" className="ContactIcon" />
               <span class="tooltiptext">Email</span>
-            </div>
-            <div className="ContactBox tooltip">
-              <FontAwesomeIcon icon="file" className="ContactIcon" href="./Resume20211119.pdf" download/>
+            </a>
+            <a
+              className="ContactBox tooltip"
+              href="Resume20211119.pdf"
+              download
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon icon="file" className="ContactIcon" />
               <span class="tooltiptext">Resume</span>
-            </div>
+            </a>
           </div>
         </div>
-        <a className="scrollDownLeft">Scroll Down-&#62;</a>
-        <a className="scrollDownRight">Scroll Down-&#62;</a>
+        <p className="scrollDownLeft">Scroll Down-&#62;</p>
+        <p className="scrollDownRight">Scroll Down-&#62;</p>
       </div>,
       document.getElementById("root")
     );
@@ -338,10 +355,10 @@ function Education() {
         <div ref={ref}>
           {onScreen ? <div className="verticleLine"></div> : <></>}
         </div>
-        <a>
+        <p>
           Bachelors in Computer Science <br />
           Sept 2017 – Aug 2022
-        </a>
+        </p>
       </div>
       <br />
       <br />
@@ -354,10 +371,10 @@ function Education() {
         <div ref={ref}>
           {onScreen ? <div className="verticleLine"></div> : <></>}
         </div>
-        <a>
+        <p>
           Dimploma in Computer Science and information Systems <br />
           Sept 2017 – Aug 2022
-        </a>
+        </p>
       </div>
     </div>
   );
