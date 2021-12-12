@@ -1,3 +1,4 @@
+import { Component } from "react";
 import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import anime from "animejs";
@@ -17,42 +18,80 @@ import DouglasCollege from "./DouglasCollege.png";
 library.add(fab, fas);
 //const anime = require('animejs')
 //window.addEventListener("resize", Coolio);
-
-function reportWindowSize() {
-  var size = [];
-  size["width"] = window.innerWidth;
-  size["height"] = window.innerHeight;
-
-  return size;
+// Hook
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
 }
 
-let GridBoxes = [];
-var GridWave = [];
-var NumberOfColumns = parseInt(reportWindowSize().width / 75);
-var NumberOfRows = parseInt(reportWindowSize().height / 75);
 function Coolio() {
+  let GridBoxes = [];
+  var GridWave = [];
+  var { width, height } = useWindowSize();
+  var NumberOfColumns = parseInt(width / 100) + 1;
+  var NumberOfRows = parseInt(height / 100) + 1;
   var NumberOfSquares = NumberOfColumns * NumberOfRows;
-  GridWave["--grid-template-columns"] = "repeat(" + NumberOfColumns + ", 80px)";
-  GridWave["--grid-template-rows"] = "repeat(" + NumberOfRows + ", 80px)";
+  GridWave["--grid-template-columns"] = "repeat(" + NumberOfColumns + ", 100px)";
+  GridWave["--grid-template-rows"] = "repeat(" + NumberOfRows + ", 100px)";
 
   console.log("squares = " + NumberOfSquares);
-  console.log("columns = " + NumberOfColumns);
-  console.log("rows = " + NumberOfRows);
+  console.log(width + " columns = " + NumberOfColumns);
+  console.log(height + " rows = " + NumberOfRows);
 
+  var midButtinArray = [];
+  midButtinArray["top"] = (height / 2) - 25+ "px";
+  midButtinArray["left"] = (width / 2) - 110 + "px";
+  console.log(midButtinArray);
   for (var i = 0; i < NumberOfSquares; i++) {
     GridBoxes.push(<div className="square" id="tiles" />);
   }
   return (
     <div id="GridLayer" className="grid" style={GridWave}>
       {GridBoxes}
-      <button className="WelcomeButton glow-on-hover" id="WelcomeBtn">
+      <button
+        className="WelcomeButton glow-on-hover"
+        id="WelcomeBtn"
+        style={midButtinArray}
+        onClick={() =>WelcomeHome(NumberOfColumns, NumberOfRows)}
+      >
         Hello World!
       </button>
     </div>
   );
+  document
+    .getElementById("WelcomeBtn")
+    .addEventListener("click", WelcomeHome, false);
 }
 
 ReactDOM.render(<Coolio />, document.getElementById("boxes"));
+
+function blah(){
+  document
+    .getElementById("WelcomeBtn")
+    .addEventListener("click", WelcomeHome, false);
+}
+  
 
 //document.getElementById("WelcomeBtn").onclick = console.log(document.querySelectorAll("#tiles"));
 
@@ -208,11 +247,11 @@ Signalz.prototype.draw = function () {
   }
 };
 
-document
-  .getElementById("WelcomeBtn")
-  .addEventListener("click", WelcomeHome, false);
 
-function WelcomeHome() {
+
+
+function WelcomeHome(NumberOfColumns, NumberOfRows) {
+
   anime({
     targets: document.querySelectorAll("#tiles"),
     scale: [{ value: 0, easing: "easeOutSine", duration: 500 }],
@@ -293,34 +332,33 @@ function Education() {
   const onScreen = useOnScreen(ref, "-10%");
   return (
     <div className="largeText">
-    <p className="heading">Education</p>
+      <p className="heading">Education</p>
       <div className="ContactFlexBox">
         <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
         <div ref={ref}>
-          {onScreen ? (
-            <div className="verticleLine"></div>
-          ) : (<></>
-          )}
+          {onScreen ? <div className="verticleLine"></div> : <></>}
         </div>
         <a>
           Bachelors in Computer Science <br />
           Sept 2017 – Aug 2022
         </a>
       </div>
-      <br/><br/>
+      <br />
+      <br />
       <div className="ContactFlexBox">
-      <img src={DouglasCollege} className="educationPic" alt="Douglas College"></img>
-      <div ref={ref}>
-          {onScreen ? (
-            <div className="verticleLine"></div>
-          ) : (<></>
-          )}
+        <img
+          src={DouglasCollege}
+          className="educationPic"
+          alt="Douglas College"
+        ></img>
+        <div ref={ref}>
+          {onScreen ? <div className="verticleLine"></div> : <></>}
         </div>
-      <a>
-        Dimploma in Computer Science and information Systems <br />
-        Sept 2017 – Aug 2022
-      </a>
-    </div>
+        <a>
+          Dimploma in Computer Science and information Systems <br />
+          Sept 2017 – Aug 2022
+        </a>
+      </div>
     </div>
   );
 

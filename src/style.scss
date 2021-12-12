@@ -25,7 +25,7 @@ body {
 }
 .square {
   width: 100px;
-  height: 100%;
+  height: 100px;
   background: #171a21;
   border: #171a21;
   border-style: solid;
@@ -34,9 +34,8 @@ body {
 
 .ProfilePic {
   border-radius: 50%;
-  //order: 5;
-  width: 300px;
-  height: 300px;
+  width: 18.75em;
+  height: 18.75em;
   margin: 0;
   box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
 }
@@ -44,10 +43,8 @@ body {
   z-index: 20;
   margin: 0;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  //-ms-transform: translate(-50%, -50%);
+  //transform: translate(-50%, -50%);
 }
 .grid {
   display: grid;
@@ -187,15 +184,13 @@ canvas {
   flex-direction: row;
   align-items: center;
   align-content: center;
-  gap: 10px 20px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  gap: 0.625em 1.25em;
+  
+  margin-top: 0.625em;
 }
 .ContactBox {
-  width: 70px;
-  height: 70px;
-  left: 1127px;
-  top: 572px;
+  width: 4.375em;
+  height: 4.375em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,7 +210,7 @@ canvas {
   flex-direction: row;
   align-items: center;
   align-content: center;
-  gap: 10px 20px;
+  gap: 0.625em 1.25em;
   flex-wrap: wrap;
   margin-top: center;
   justify-content: center;
@@ -251,19 +246,13 @@ canvas {
 
 @keyframes scrollBoing {
   0%   { bottom:0px;}
-  50%  {bottom: 10px;}
-  100% {bottom:0px}
-}
-
-@keyframes scrollBoing {
-  0%   { bottom:0px;}
-  50%  {bottom: 10px;}
+  50%  {bottom: 0.625em;}
   100% {bottom:0px}
 }
 
 @keyframes scrollLineAppear {
-  0%   {height:0px;}
-  100% {bottom:200px}
+  0%   {height:0em;}
+  100% {bottom:12.5em}
 }
 
 .typewriterCursor {
@@ -277,17 +266,17 @@ canvas {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 7.5em;
   background-color: #171a21;
   color: #66fCf1;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+  border-radius: 0.375em;
+  padding: 0.3125em 0;
   position: absolute;
   z-index: 1;
   top: 120%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -3.75em;
 }
 
 .tooltip .tooltiptext::after {
@@ -295,8 +284,8 @@ canvas {
   position: absolute;
   bottom: 100%;
   left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
+  margin-left: -0.3125em;
+  border-width: 0.3125em;
   border-style: solid;
   border-color: transparent transparent #171a21 transparent;
 }
@@ -314,7 +303,8 @@ canvas {
 .ubcPic{
   size:100px;
   height:200px;
-  margin-right: 55px;
+  margin-right: 25px;
+  margin-left: 25px;
 }
 
 .largeText{
@@ -329,7 +319,7 @@ canvas {
 }
 .heading{
   position: absolute;
-  left: 0;
-  top: 87%;
+  left: 2%;
+  top: 90%;
   font-size: 2.25em;
 }
