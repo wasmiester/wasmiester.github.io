@@ -294,26 +294,26 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
           />
 
           <div className="ContactFlexBox">
-            <div className="ContactBox tooltip">
+            <div className="ContactBox tooltip" href="https://github.com/wasmiester">
               <FontAwesomeIcon
                 icon={["fab", "github"]}
                 className="ContactIcon"
               />
               <span class="tooltiptext">Github</span>
             </div>
-            <div className="ContactBox tooltip">
+            <div className="ContactBox tooltip" href="https://www.linkedin.com/in/wasi-raza/">
               <FontAwesomeIcon
                 icon={["fab", "linkedin"]}
                 className="ContactIcon"
               />
               <span class="tooltiptext">Linkedin</span>
             </div>
-            <div className="ContactBox tooltip">
+            <div className="ContactBox tooltip"  href="mailto:wasiulhassanraza@gmail.com">
               <FontAwesomeIcon icon="envelope" className="ContactIcon" />
               <span class="tooltiptext">Email</span>
             </div>
             <div className="ContactBox tooltip">
-              <FontAwesomeIcon icon="file" className="ContactIcon" />
+              <FontAwesomeIcon icon="file" className="ContactIcon" href="./Resume20211119.pdf" download/>
               <span class="tooltiptext">Resume</span>
             </div>
           </div>
