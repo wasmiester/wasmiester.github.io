@@ -1,5 +1,5 @@
 body {
-  background-color: #111316;
+  background-color: #0b0c10;
   color: #ffffff;
   height: 100vh;
   font-family: "Darker Grotesque";
@@ -26,8 +26,8 @@ body {
 .square {
   width: 100px;
   height: 100px;
-  background: #171a21;
-  border: #171a21;
+  background: #1f2833;
+  border: #1f2833;
   border-style: solid;
   margin: 0px;
 }
@@ -70,7 +70,10 @@ canvas {
   z-index: 10;
   background: #0b1b2d;
 }
-
+.mapStyle {
+  height: "400px";
+  width: "800px";
+}
 @keyframes borderColor {
   0% {
     border-color: #ff0000;
@@ -186,7 +189,7 @@ canvas {
   align-items: center;
   align-content: center;
   gap: 0.625em 1.25em;
-  
+
   margin-top: 0.625em;
 }
 .ContactBox {
@@ -246,19 +249,29 @@ canvas {
 }
 
 @keyframes scrollBoing {
-  0%   { bottom:0px;}
-  50%  {bottom: 0.625em;}
-  100% {bottom:0px}
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 0.625em;
+  }
+  100% {
+    bottom: 0px;
+  }
 }
 
 @keyframes scrollLineAppear {
-  0%   {height:0em;}
-  100% {bottom:12.5em}
+  0% {
+    height: 0em;
+  }
+  100% {
+    bottom: 12.5em;
+  }
 }
 
 .typewriterCursor {
   font-size: 2em;
-  color: #66fCf1;
+  color: #66fcf1;
 }
 
 .tooltip {
@@ -269,7 +282,7 @@ canvas {
   visibility: hidden;
   width: 7.5em;
   background-color: #171a21;
-  color: #66fCf1;
+  color: #66fcf1;
   text-align: center;
   border-radius: 0.375em;
   padding: 0.3125em 0;
@@ -295,32 +308,54 @@ canvas {
   visibility: visible;
 }
 
-.educationPic{
-  size:100px;
-  height:200px;
+.educationPic {
+  size: 50px;
+  height: 200px;
   margin-right: 10px;
-  
 }
-.ubcPic{
-  size:100px;
-  height:200px;
+
+.ubcPic {
+  size: 100px;
+  height: 200px;
   margin-right: 25px;
   margin-left: 25px;
 }
 
-.largeText{
+.largeText {
   font-size: 2em;
 }
-.verticleLine{
+.verticleLine {
   height: 200px;
   width: 5px;
   background-color: #ffff;
   animation-name: scrollLineAppear;
   animation-duration: 1s;
 }
-.heading{
+.heading {
   position: absolute;
   left: 2%;
   top: 90%;
   font-size: 2.25em;
+}
+.experienceDiv{
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  gap: 0.625em 1.25em;
+  margin-top: 0.625em;
+}
+.experienceCard{
+  background-color: #1f2833;
+  align-content: center;
+  text-align: center;
+  width: 300px;
+  padding: 30px;
+}
+.experienceDetail{
+  text-align: left;
+}
+.experiencePic {
+  height: 100px;
+  width: auto;
 }
