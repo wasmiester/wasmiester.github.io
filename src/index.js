@@ -330,7 +330,7 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
             </a>
             <a
               className="ContactBox tooltip"
-              href="Resume20211119.pdf"
+              href="wasmiester.github.io/Resume20211119.pdf"
               download
               target="_blank"
               rel="noreferrer"
@@ -379,8 +379,8 @@ function Education() {
           {onScreen ? <div className="verticleLine"></div> : <></>}
         </div>
         <p>
-          Dimploma in Computer Science and information Systems <br />
-          Sept 2017 – Aug 2022
+          Dimploma in Computer Science and Information Systems <br />
+          Oct 2013 – Aug 2017 
         </p>
       </div>
     </div>
@@ -439,12 +439,13 @@ function Experience() {
         <div className="experienceDetail">
           <br />• Provided just-in-time assistance to faculty, staff and
           students with Canvas and its integrated/related online tools (e.g.,
-          Collaborate Ultra, Zoom, Kaltura, WeBWork). <br />• Became familiar with and
-          provide advice on learning tool availability and selection <br />• Assisted
-          course instructors and students with DIY video and screen casting
-          tools such as Kaltura Capture and Camtasia. <br />• Supported users in the
-          use of variety of integrated tools. <br />• Created clear and detailed
-          step-by-step documentation and how-to videos
+          Collaborate Ultra, Zoom, Kaltura, WeBWork). <br />• Became familiar
+          with and provide advice on learning tool availability and selection{" "}
+          <br />• Assisted course instructors and students with DIY video and
+          screen casting tools such as Kaltura Capture and Camtasia. <br />•
+          Supported users in the use of variety of integrated tools. <br />•
+          Created clear and detailed step-by-step documentation and how-to
+          videos
         </div>
       </div>
     </div>
