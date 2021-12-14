@@ -464,7 +464,7 @@ export class MapContainer extends Component {
             center={defaultLocation}
             zoom={10}
             options={{ mapId: "794c38c2d628d148" }}
-            mapContainerStyle={{ height: "400px", width: "100vw" }}
+            mapContainerStyle={{ height: "400px", width: "90vw" }}
           >
             <Marker position={defaultLocation} />
           </GoogleMap>
