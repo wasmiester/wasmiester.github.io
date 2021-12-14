@@ -330,7 +330,7 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
             </a>
             <a
               className="ContactBox tooltip"
-              href="wasmiester.github.io/Resume20211119.pdf"
+              href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Resume20211119.pdf"
               download
               target="_blank"
               rel="noreferrer"
