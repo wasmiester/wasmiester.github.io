@@ -12,6 +12,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import Typewriter from "typewriter-effect";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { IconContext } from "react-icons";
 //import { Marker} from "react-google-maps"
 
 import UBCLogo from "./UBC-logo-2018-crest-white-rgb72.png";
@@ -36,7 +37,7 @@ import {
   SiNestjs,
   SiFlutter,
   SiDart,
-  SiFirebase
+  SiFirebase,
 } from "react-icons/si";
 
 import Atomic47 from "./Atomic47.png";
@@ -372,33 +373,35 @@ function Education() {
   const ref = useRef();
   const onScreen = useOnScreen(ref, "-10%");
   return (
-    <div className="largeText">
+    <div className=" largeText">
       <p className="Educationheading">Education</p>
-      <div className="ContactFlexBox">
-        <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
-        <div ref={ref}>
-          {onScreen ? <div className="verticleLine"></div> : <></>}
+      <div className="Educontainer">
+        <div className="ContactFlexBox">
+          <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
+          <div ref={ref}>
+            {onScreen ? <div className="verticleLine"></div> : <></>}
+          </div>
+          <p>
+            Bachelors in Computer Science <br />
+            Sept 2017 – Aug 2022
+          </p>
         </div>
-        <p>
-          Bachelors in Computer Science <br />
-          Sept 2017 – Aug 2022
-        </p>
-      </div>
-      <br />
-      <br />
-      <div className="ContactFlexBox">
-        <img
-          src={DouglasCollege}
-          className="educationPic"
-          alt="Douglas College"
-        ></img>
-        <div ref={ref}>
-          {onScreen ? <div className="verticleLine"></div> : <></>}
+        <br />
+        <br />
+        <div className="ContactFlexBox">
+          <img
+            src={DouglasCollege}
+            className="educationPic"
+            alt="Douglas College"
+          ></img>
+          <div ref={ref}>
+            {onScreen ? <div className="verticleLine"></div> : <></>}
+          </div>
+          <p>
+            Dimploma in Computer Science and Information Systems <br />
+            Oct 2013 – Aug 2017
+          </p>
         </div>
-        <p>
-          Dimploma in Computer Science and Information Systems <br />
-          Oct 2013 – Aug 2017
-        </p>
       </div>
     </div>
   );
@@ -408,60 +411,63 @@ function Experience() {
   return (
     <div className="experienceDiv">
       <p className="Experiencenheading">Experience</p>
-      <div className="experienceCard">
-        <br />
-        <img src={Atomic47} className="experiencePic" alt="Atomic47" />
-        <br />
-        Full Stack API Developer
-        <br />
-        Jan 2021 – April 2021
-        <div className="experienceDetail">
-          <br />• Helped design core API components. <br />• Worked side-by-side
-          with clients to address their requirements, and provide tools to
-          fulfil those requirements. <br />• Work with the core development
-          teams to deploy API modules as part of production systems.
-          <br /> • Establish scalable, efficient, automated processes for
-          large-scale data analyses and automation.
+      <div className="container">
+        <div className="experienceCard">
           <br />
-        </div>
-      </div>
-
-      <div className="experienceCard">
-        <br />
-        <img src={UBCLogo} className="experiencePic" alt="UBC" />
-        <br />
-        Lead Full Stack API Developer
-        <br />
-        Sept 2019 – Dec2020
-        <div className="experienceDetail">
-          <br />• Led a team of 4 developers with operations, priorities, and
-          development goals, utilizing Agile techniques such as daily/weekly
-          scrums.
-          <br /> • Weekly meeting with client and project lead. <br />•
-          Constructed, optimized, and tested online wellness platform, from the
-          ground up, despite tight deadlines. <br />• guided and assisted
-          back-end development, front-end development, and database management
+          <img src={Atomic47} className="experiencePic" alt="Atomic47" />
           <br />
+          Full Stack API Developer
+          <br />
+          Jan 2021 – April 2021
+          <div className="experienceDetail">
+            <br />• Helped design core API components. <br />• Worked
+            side-by-side with clients to address their requirements, and provide
+            tools to fulfil those requirements. <br />• Work with the core
+            development teams to deploy API modules as part of production
+            systems.
+            <br /> • Establish scalable, efficient, automated processes for
+            large-scale data analyses and automation.
+            <br />
+          </div>
         </div>
-      </div>
 
-      <div className="experienceCard">
-        <br />
-        <img src={UBCLogo} className="experiencePic" alt="UBC" />
-        <br />
-        Co-op Faculty Learning Technologies Rover
-        <br />
-        Sept 2019 – August 2020
-        <div className="experienceDetail">
-          <br />• Provided just-in-time assistance to faculty, staff and
-          students with Canvas and its integrated/related online tools (e.g.,
-          Collaborate Ultra, Zoom, Kaltura, WeBWork). <br />• Became familiar
-          with and provide advice on learning tool availability and selection{" "}
-          <br />• Assisted course instructors and students with DIY video and
-          screen casting tools such as Kaltura Capture and Camtasia. <br />•
-          Supported users in the use of variety of integrated tools. <br />•
-          Created clear and detailed step-by-step documentation and how-to
-          videos
+        <div className="experienceCard">
+          <br />
+          <img src={UBCLogo} className="experiencePic" alt="UBC" />
+          <br />
+          Lead Full Stack API Developer
+          <br />
+          Sept 2019 – Dec2020
+          <div className="experienceDetail">
+            <br />• Led a team of 4 developers with operations, priorities, and
+            development goals, utilizing Agile techniques such as daily/weekly
+            scrums.
+            <br /> • Weekly meeting with client and project lead. <br />•
+            Constructed, optimized, and tested online wellness platform, from
+            the ground up, despite tight deadlines. <br />• guided and assisted
+            back-end development, front-end development, and database management
+            <br />
+          </div>
+        </div>
+
+        <div className="experienceCard">
+          <br />
+          <img src={UBCLogo} className="experiencePic" alt="UBC" />
+          <br />
+          Co-op Faculty Learning Technologies Rover
+          <br />
+          Sept 2019 – August 2020
+          <div className="experienceDetail">
+            <br />• Provided just-in-time assistance to faculty, staff and
+            students with Canvas and its integrated/related online tools (e.g.,
+            Collaborate Ultra, Zoom, Kaltura, WeBWork). <br />• Became familiar
+            with and provide advice on learning tool availability and selection{" "}
+            <br />• Assisted course instructors and students with DIY video and
+            screen casting tools such as Kaltura Capture and Camtasia. <br />•
+            Supported users in the use of variety of integrated tools. <br />•
+            Created clear and detailed step-by-step documentation and how-to
+            videos
+          </div>
         </div>
       </div>
     </div>
@@ -470,10 +476,20 @@ function Experience() {
 
 function Skills() {
   return (
-    <div className="SkillsIcon">
-      <DiJava /> <DiPhp /> <SiJavascript /> <SiTypescript /> <DiPython />
-      <DiHtml5 /> <DiCss3 /> <DiAndroid /> <DiReact /> <DiNodejsSmall />
-      <SiCplusplus /> <DiMysql /><SiR /><SiNestjs /><SiFlutter /><SiDart /><SiFirebase/>
+    <div className="experienceDiv">
+      <p className="Experiencenheading">Skills</p>
+      <div className="container">
+        <IconContext.Provider value={{ className: "SkillsIcon" }}>
+          <DiJava /> <DiPhp /> <SiJavascript /> <SiTypescript /> <DiPython />
+          <DiHtml5 /> <DiCss3 /> <DiAndroid /> <DiReact /> <DiNodejsSmall />
+          <SiCplusplus /> <DiMysql />
+          <SiR />
+          <SiNestjs />
+          <SiFlutter />
+          <SiDart />
+          <SiFirebase />
+        </IconContext.Provider>
+      </div>
     </div>
   );
 }

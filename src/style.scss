@@ -184,12 +184,16 @@ canvas {
   color: #BAFF29;
 }
 .SkillsIcon {
+  display: grid;
+  grid-template-columns: 2;
+  padding: 50px;
   transform: scale(4);
   color: #BAFF29;
 }
 .ContactFlexBox {
   display: flex; /* or inline-flex */
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   align-content: center;
   gap: 0.625em 1.25em;
@@ -217,6 +221,19 @@ canvas {
   display: flex;
   flex-direction: row;
   align-items: center;
+  align-content: center;
+  gap: 0.625em 1.25em;
+  flex-wrap: wrap;
+  margin-top: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.Educontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
   align-content: center;
   gap: 0.625em 1.25em;
   flex-wrap: wrap;
@@ -336,24 +353,23 @@ canvas {
   animation-duration: 1s;
 }
 .Educationheading {
-  position: absolute;
-  left: 2%;
-  top: 97%;
+  display: grid;
+  place-items: left;
   font-size: 2.25em;
 }
 .Experiencenheading {
-  position: absolute;
-  left: 2%;
-  top: 200%;
+  display: grid;
+  place-items: left;
   font-size: 4.25em;
 }
 .experienceDiv{
   display: flex; /* or inline-flex */
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   align-content: center;
   gap: 0.625em 1.25em;
-  margin-top: 0.625em;
+  
 }
 .experienceCard{
   background-color: #086788;
