@@ -1,23 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.25141391.chunk.css",
-    "main.js": "/static/js/main.77b2b3f7.chunk.js",
-    "main.js.map": "/static/js/main.77b2b3f7.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.172c5414.js",
-    "runtime-main.js.map": "/static/js/runtime-main.172c5414.js.map",
-    "static/js/2.3f87d100.chunk.js": "/static/js/2.3f87d100.chunk.js",
-    "static/js/2.3f87d100.chunk.js.map": "/static/js/2.3f87d100.chunk.js.map",
+    "main.css": "/static/css/main.41ffb58f.css",
+    "main.js": "/static/js/main.71ab1d28.js",
+    "static/media/ProfilePic.jpg": "/static/media/ProfilePic.fef34457a681299d2197.jpg",
+    "static/media/DouglasCollege.png": "/static/media/DouglasCollege.8acd464fb79a1f02e7da.png",
+    "static/media/Atomic47.png": "/static/media/Atomic47.9eee071134607aa70353.png",
     "index.html": "/index.html",
-    "static/css/main.25141391.chunk.css.map": "/static/css/main.25141391.chunk.css.map",
-    "static/js/2.3f87d100.chunk.js.LICENSE.txt": "/static/js/2.3f87d100.chunk.js.LICENSE.txt",
-    "static/media/Atomic47.9eee0711.png": "/static/media/Atomic47.9eee0711.png",
-    "static/media/DouglasCollege.8acd464f.png": "/static/media/DouglasCollege.8acd464f.png",
-    "static/media/ProfilePic.fef34457.jpg": "/static/media/ProfilePic.fef34457.jpg"
+    "main.41ffb58f.css.map": "/static/css/main.41ffb58f.css.map",
+    "main.71ab1d28.js.map": "/static/js/main.71ab1d28.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.172c5414.js",
-    "static/js/2.3f87d100.chunk.js",
-    "static/css/main.25141391.chunk.css",
-    "static/js/main.77b2b3f7.chunk.js"
+    "static/css/main.41ffb58f.css",
+    "static/js/main.71ab1d28.js"
   ]
 }
