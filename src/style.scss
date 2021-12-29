@@ -1,6 +1,6 @@
 body {
-  background-color: #0b0c10;
-  color: #ffffff;
+  background-color: #1C3041;
+  color: #4CD6E6;
   height: 100vh;
   font-family: "Darker Grotesque";
 }
@@ -181,7 +181,11 @@ canvas {
 
 .ContactIcon {
   transform: scale(2);
-  color: #ffff;
+  color: #BAFF29;
+}
+.SkillsIcon {
+  transform: scale(4);
+  color: #BAFF29;
 }
 .ContactFlexBox {
   display: flex; /* or inline-flex */
@@ -199,12 +203,12 @@ canvas {
   align-items: center;
   justify-content: center;
 
-  background: radial-gradient(
-    120.31% 335.94% at 50% 50%,
-    #708ace 0%,
-    rgba(17, 19, 22, 0) 100%
-  );
-  border: 3px solid #ffffff;
+  // background: radial-gradient(
+  //   120.31% 335.94% at 50% 50%,
+  //   #708ace 0%,
+  //   rgba(17, 19, 22, 0) 100%
+  // );
+  border: 3px solid #BAFF29;
   box-sizing: border-box;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 12px;
@@ -271,7 +275,7 @@ canvas {
 
 .typewriterCursor {
   font-size: 2em;
-  color: #66fcf1;
+  color: #4cd6e6;
 }
 
 .tooltip {
@@ -282,7 +286,7 @@ canvas {
   visibility: hidden;
   width: 7.5em;
   background-color: #171a21;
-  color: #66fcf1;
+  color: #4cd6e6;
   text-align: center;
   border-radius: 0.375em;
   padding: 0.3125em 0;
@@ -327,15 +331,21 @@ canvas {
 .verticleLine {
   height: 200px;
   width: 5px;
-  background-color: #ffff;
+  background-color: #BAFF29;
   animation-name: scrollLineAppear;
   animation-duration: 1s;
 }
-.heading {
+.Educationheading {
   position: absolute;
   left: 2%;
-  top: 90%;
+  top: 97%;
   font-size: 2.25em;
+}
+.Experiencenheading {
+  position: absolute;
+  left: 2%;
+  top: 200%;
+  font-size: 4.25em;
 }
 .experienceDiv{
   display: flex; /* or inline-flex */
@@ -346,11 +356,20 @@ canvas {
   margin-top: 0.625em;
 }
 .experienceCard{
-  background-color: #1f2833;
+  background-color: #086788;
   align-content: center;
   text-align: center;
   width: 300px;
   padding: 30px;
+  transition: 0.3s;
+}
+.experienceCard:hover{
+  background-color: #1f2833;
+  align-content: center;
+  text-align: center;
+  width: 450px;
+  padding: 30px;
+  font-size: 1.5em;
 }
 .experienceDetail{
   text-align: left;

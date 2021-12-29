@@ -16,6 +16,28 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 import UBCLogo from "./UBC-logo-2018-crest-white-rgb72.png";
 import DouglasCollege from "./DouglasCollege.png";
+import {
+  DiJava,
+  DiPhp,
+  DiPython,
+  DiHtml5,
+  DiCss3,
+  DiAndroid,
+  DiReact,
+  DiNodejsSmall,
+  DiMysql,
+} from "react-icons/di";
+
+import {
+  SiJavascript,
+  SiTypescript,
+  SiCplusplus,
+  SiR,
+  SiNestjs,
+  SiFlutter,
+  SiDart,
+  SiFirebase
+} from "react-icons/si";
 
 import Atomic47 from "./Atomic47.png";
 //import "animate.css/animate.min.css";
@@ -91,12 +113,6 @@ function Coolio() {
 }
 
 ReactDOM.render(<Coolio />, document.getElementById("boxes"));
-
-function blah() {
-  document
-    .getElementById("WelcomeBtn")
-    .addEventListener("click", WelcomeHome, false);
-}
 
 //document.getElementById("WelcomeBtn").onclick = console.log(document.querySelectorAll("#tiles"));
 
@@ -348,7 +364,8 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
   }, 1000);
   ReactDOM.render(<Education />, document.getElementById("education"));
   ReactDOM.render(<Experience />, document.getElementById("experience"));
-  ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
+  ReactDOM.render(<Skills />, document.getElementById("Skills"));
+  //ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
 }
 
 function Education() {
@@ -356,7 +373,7 @@ function Education() {
   const onScreen = useOnScreen(ref, "-10%");
   return (
     <div className="largeText">
-      <p className="heading">Education</p>
+      <p className="Educationheading">Education</p>
       <div className="ContactFlexBox">
         <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
         <div ref={ref}>
@@ -380,7 +397,7 @@ function Education() {
         </div>
         <p>
           Dimploma in Computer Science and Information Systems <br />
-          Oct 2013 – Aug 2017 
+          Oct 2013 – Aug 2017
         </p>
       </div>
     </div>
@@ -388,10 +405,9 @@ function Education() {
 }
 
 function Experience() {
-  const ref = useRef();
-  const onScreen = useOnScreen(ref, "-10%");
   return (
     <div className="experienceDiv">
+      <p className="Experiencenheading">Experience</p>
       <div className="experienceCard">
         <br />
         <img src={Atomic47} className="experiencePic" alt="Atomic47" />
@@ -433,7 +449,7 @@ function Experience() {
         <br />
         <img src={UBCLogo} className="experiencePic" alt="UBC" />
         <br />
-        Co-op Faculty Learning Technologies Rover (LTR
+        Co-op Faculty Learning Technologies Rover
         <br />
         Sept 2019 – August 2020
         <div className="experienceDetail">
@@ -452,28 +468,37 @@ function Experience() {
   );
 }
 
-const lib = ["places"];
-const id = ["794c38c2d628d148"];
-const key = "AIzaSyAHJH3DZvncT-tCT1kDruDXfclLg04tBYU"; // PUT GMAP API KEY HERE
-const defaultLocation = { lat: 49.24881, lng: -122.980507 };
-export class MapContainer extends Component {
-  render() {
-    return (
-      <div>
-        <LoadScript googleMapsApiKey={key} libraries={lib} mapIds={id}>
-          <GoogleMap
-            center={defaultLocation}
-            zoom={10}
-            options={{ mapId: "794c38c2d628d148" }}
-            mapContainerStyle={{ height: "400px", width: "90vw" }}
-          >
-            <Marker position={defaultLocation} />
-          </GoogleMap>
-        </LoadScript>
-      </div>
-    );
-  }
+function Skills() {
+  return (
+    <div className="SkillsIcon">
+      <DiJava /> <DiPhp /> <SiJavascript /> <SiTypescript /> <DiPython />
+      <DiHtml5 /> <DiCss3 /> <DiAndroid /> <DiReact /> <DiNodejsSmall />
+      <SiCplusplus /> <DiMysql /><SiR /><SiNestjs /><SiFlutter /><SiDart /><SiFirebase/>
+    </div>
+  );
 }
+// const lib = ["places"];
+// const id = ["794c38c2d628d148"];
+// const key = "AIzaSyAHJH3DZvncT-tCT1kDruDXfclLg04tBYU"; // PUT GMAP API KEY HERE
+// const defaultLocation = { lat: 49.24881, lng: -122.980507 };
+// export class MapContainer extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <LoadScript googleMapsApiKey={key} libraries={lib} mapIds={id}>
+//           <GoogleMap
+//             center={defaultLocation}
+//             zoom={10}
+//             options={{ mapId: "794c38c2d628d148" }}
+//             mapContainerStyle={{ height: "400px", width: "90vw" }}
+//           >
+//             <Marker position={defaultLocation} />
+//           </GoogleMap>
+//         </LoadScript>
+//       </div>
+//     );
+//   }
+// }
 
 function useOnScreen(ref, rootMargin = "0px") {
   // State and setter for storing whether element is visible
