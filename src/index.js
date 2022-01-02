@@ -371,7 +371,7 @@ function Education() {
     <div className=" largeText">
       <p className="Educationheading">Education</p>
       <div className="Educontainer">
-        <div className="ContactFlexBox">
+        <div className="EducationFlexBox">
           <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
           <div ref={ref}>
             {onScreen ? <div className="verticleLine"></div> : <></>}
@@ -383,17 +383,17 @@ function Education() {
         </div>
         <br />
         <br />
-        <div className="ContactFlexBox">
+        <div className="EducationFlexBox">
           <img
             src={DouglasCollege}
-            className="educationPic"
+            className="douglasPic"
             alt="Douglas College"
           ></img>
           <div ref={ref}>
             {onScreen ? <div className="verticleLine"></div> : <></>}
           </div>
           <p>
-            Dimploma in Computer Science and Information Systems <br />
+            Diploma in Computer Science and Information Systems <br />
             Oct 2013 – Aug 2017
           </p>
         </div>
