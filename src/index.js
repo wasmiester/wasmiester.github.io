@@ -294,11 +294,7 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
   setTimeout(() => {
     ReactDOM.render(
       <div className="container">
-        <img
-          src={ProfilePic}
-          alt="Profile picture"
-          className="ProfilePic"
-        ></img>
+        <img src={ProfilePic} alt="Profilepicture" className="ProfilePic" />
         <div>
           <Typewriter
             className="typewriter"
@@ -310,7 +306,6 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
               skipAddStyles: true,
             }}
           />
-
           <div className="ContactFlexBox">
             <a
               className="ContactBox tooltip"
@@ -435,25 +430,6 @@ function Experience() {
           <br />
           <img src={UBCLogo} className="experiencePic" alt="UBC" />
           <br />
-          Lead Full Stack API Developer
-          <br />
-          Sept 2019 – Dec2020
-          <div className="experienceDetail">
-            <br />• Led a team of 4 developers with operations, priorities, and
-            development goals, utilizing Agile techniques such as daily/weekly
-            scrums.
-            <br /> • Weekly meeting with client and project lead. <br />•
-            Constructed, optimized, and tested online wellness platform, from
-            the ground up, despite tight deadlines. <br />• guided and assisted
-            back-end development, front-end development, and database management
-            <br />
-          </div>
-        </div>
-
-        <div className="experienceCard">
-          <br />
-          <img src={UBCLogo} className="experiencePic" alt="UBC" />
-          <br />
           Co-op Faculty Learning Technologies Rover
           <br />
           Sept 2019 – August 2020
@@ -469,6 +445,25 @@ function Experience() {
             videos
           </div>
         </div>
+
+        <div className="experienceCard">
+          <br />
+          <img src={UBCLogo} className="experiencePic" alt="UBC" />
+          <br />
+          Lead Full Stack API Developer
+          <br />
+          Sept 2019 – Dec2020
+          <div className="experienceDetail">
+            <br />• Led a team of 4 developers with operations, priorities, and
+            development goals, utilizing Agile techniques such as daily/weekly
+            scrums.
+            <br /> • Weekly meeting with client and project lead. <br />•
+            Constructed, optimized, and tested online wellness platform, from
+            the ground up, despite tight deadlines. <br />• guided and assisted
+            back-end development, front-end development, and database management
+            <br />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -476,19 +471,111 @@ function Experience() {
 
 function Skills() {
   return (
-    <div className="experienceDiv">
+    <div>
       <p className="Experiencenheading">Skills</p>
       <div className="container">
-        <IconContext.Provider value={{ className: "SkillsIcon" }}>
-          <DiJava /> <DiPhp /> <SiJavascript /> <SiTypescript /> <DiPython />
-          <DiHtml5 /> <DiCss3 /> <DiAndroid /> <DiReact /> <DiNodejsSmall />
-          <SiCplusplus /> <DiMysql />
-          <SiR />
-          <SiNestjs />
-          <SiFlutter />
-          <SiDart />
-          <SiFirebase />
-        </IconContext.Provider>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiJava />
+          </div>
+          <div class="tooltiptext">Java</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiPhp />
+          </div>
+          <div class="tooltiptext">Php</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiJavascript />
+          </div>
+          <div class="tooltiptext">JavaScript</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiTypescript />
+          </div>
+          <div class="tooltiptext">TypeScript</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiPython />
+          </div>
+          <div class="tooltiptext">Python</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiHtml5 />
+          </div>
+          <div class="tooltiptext">HTML 5</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiCss3 />
+          </div>
+          <div class="tooltiptext">Css 3</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiAndroid />
+          </div>
+          <div class="tooltiptext">Android Studio</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiReact />
+          </div>
+          <div class="tooltiptext">React</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiNodejsSmall />
+          </div>
+          <div class="tooltiptext">Node.js</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiCplusplus />
+          </div>
+          <div class="tooltiptext">C++</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <DiMysql />
+          </div>
+          <div class="tooltiptext">My SQL</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiR />
+          </div>
+          <div class="tooltiptext">R</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiNestjs />
+          </div>
+          <div class="tooltiptext">Nest.js</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiFlutter />
+          </div>
+          <div class="tooltiptext">Flutter</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiDart />
+          </div>
+          <div class="tooltiptext">Dart</div>
+        </div>
+        <div className="SkillsBox tooltip">
+          <div className="SkillsIcon">
+            <SiFirebase />
+          </div>
+          <div class="tooltiptext">Firebase</div>
+        </div>
       </div>
     </div>
   );
