@@ -2,6 +2,7 @@ import { Component } from "react";
 import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import anime from "animejs";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/style.scss";
 import $ from "jquery";
 import ProfilePic from "./ProfilePic.jpg";
@@ -12,7 +13,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import Typewriter from "typewriter-effect";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { IconContext } from "react-icons";
+
 //import { Marker} from "react-google-maps"
 
 import UBCLogo from "./UBC-logo-2018-crest-white-rgb72.png";
@@ -108,14 +109,393 @@ function Coolio() {
       </button>
     </div>
   );
-  document
-    .getElementById("WelcomeBtn")
-    .addEventListener("click", WelcomeHome, false);
 }
 
 ReactDOM.render(<Coolio />, document.getElementById("boxes"));
 
 //document.getElementById("WelcomeBtn").onclick = console.log(document.querySelectorAll("#tiles"));
+
+function WelcomeHome(NumberOfColumns, NumberOfRows) {
+  anime({
+    targets: document.querySelectorAll("#tiles"),
+    scale: [{ value: 0, easing: "easeOutSine", duration: 500 }],
+    delay: anime.stagger(200, {
+      grid: [NumberOfColumns, NumberOfRows],
+      from: "center",
+    }),
+  });
+  anime({
+    targets: ".WelcomeButton",
+    opacity: [{ value: 0, easing: "easeOutSine", duration: 1000 }],
+  });
+  anime({
+    targets: "#cvs",
+    opacity: [{ value: 0, easing: "easeOutSine", duration: 1000 }],
+  });
+  setTimeout(() => {
+    ReactDOM.unmountComponentAtNode(document.getElementById("SplashScreen"));
+    document.getElementById("SplashScreen").remove();
+  }, 2000);
+
+  setTimeout(() => {
+    ReactDOM.render(
+      <div className="container">
+        <img src={ProfilePic} alt="Profilepicture" className="ProfilePic" />
+        <div>
+          <Typewriter
+            className="typewriter"
+            options={{
+              strings: "Hi, I'm Wasi! <br/>I am an app and web developer! ",
+              autoStart: true,
+              wrapperClassName: "typewriter",
+              cursorClassName: "typewriterCursor",
+              skipAddStyles: true,
+            }}
+          />
+          <div className="ContactFlexBox">
+            <a
+              className="ContactBox toolTip"
+              href="https://github.com/wasmiester"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={["fab", "github"]}
+                className="ContactIcon"
+              />
+              <span class="toolTiptext">Github</span>
+            </a>
+            <a
+              className="ContactBox toolTip"
+              href="https://www.linkedin.com/in/wasi-raza/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={["fab", "linkedin"]}
+                className="ContactIcon"
+              />
+              <span class="toolTiptext">Linkedin</span>
+            </a>
+            <a
+              className="ContactBox toolTip"
+              href="mailto:wasiulhassanraza@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon icon="envelope" className="ContactIcon" />
+              <span class="toolTiptext">Email</span>
+            </a>
+            <a
+              className="ContactBox toolTip"
+              href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Resume20211119.pdf"
+              download
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon icon="file" className="ContactIcon" />
+              <span class="toolTiptext">Resume</span>
+            </a>
+          </div>
+        </div>
+        <p className="scrollDownLeft">Scroll Down-&#62;</p>
+        <p className="scrollDownRight">Scroll Down-&#62;</p>
+      </div>,
+      document.getElementById("Home")
+    );
+  }, 1000);
+  ReactDOM.render(<Education />, document.getElementById("Education"));
+  ReactDOM.render(<Experience />, document.getElementById("Experience"));
+  ReactDOM.render(<Skills />, document.getElementById("Skills"));
+  ReactDOM.render(<Navigation />, document.getElementById("navigation"));
+  //ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
+}
+
+function Education() {
+  const ref = useRef();
+  const onScreen = useOnScreen(ref, "-10%");
+  return (
+    <div className=" largeText">
+      <p className="Educationheading">Education</p>
+      <div className="Educontainer">
+        <div className="EducationFlexBox">
+          <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
+          <div ref={ref}>
+            {onScreen ? <div className="verticleLine"></div> : <></>}
+          </div>
+          <p>
+            Bachelors in Computer Science <br />
+            Sept 2017 – Aug 2022
+          </p>
+        </div>
+        <br />
+        <br />
+        <div className="EducationFlexBox">
+          <img
+            src={DouglasCollege}
+            className="douglasPic"
+            alt="Douglas College"
+          ></img>
+          <div ref={ref}>
+            {onScreen ? <div className="verticleLine"></div> : <></>}
+          </div>
+          <p>
+            Diploma in Computer Science and Information Systems <br />
+            Oct 2013 – Aug 2017
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Experience() {
+  return (
+    <>
+      <p className="Experiencenheading">Experience</p>
+      <div className="container">
+        <div className="experienceDiv">
+          <div className="experienceCard">
+            <img src={Atomic47} className="experiencePic" alt="Atomic47" />
+            <br />
+            Full Stack API Developer
+            <br />
+            Jan 2021 – April 2021
+            <div className="experienceDetail">
+              <br />• Helped design core API components. <br />• Worked
+              side-by-side with clients to address their requirements, and
+              provide tools to fulfil those requirements. <br />• Work with the
+              core development teams to deploy API modules as part of production
+              systems.
+              <br /> • Establish scalable, efficient, automated processes for
+              large-scale data analyses and automation.
+              <br />
+            </div>
+          </div>
+
+          <div className="experienceCard">
+            <img src={UBCLogo} className="experiencePic" alt="UBC" />
+            <br />
+            Co-op Faculty Learning Technologies Rover
+            <br />
+            Sept 2019 – August 2020
+            <div className="experienceDetail">
+              <br />• Provided just-in-time assistance to faculty, staff and
+              students with Canvas and its integrated/related online tools
+              (e.g., Collaborate Ultra, Zoom, Kaltura, WeBWork). <br />• Became
+              familiar with and provide advice on learning tool availability and
+              selection <br />• Assisted course instructors and students with
+              DIY video and screen casting tools such as Kaltura Capture and
+              Camtasia. <br />• Supported users in the use of variety of
+              integrated tools. <br />• Created clear and detailed step-by-step
+              documentation and how-to videos
+            </div>
+          </div>
+
+          <div className="experienceCard">
+            <img src={UBCLogo} className="experiencePic" alt="UBC" />
+            <br />
+            Lead Full Stack API Developer
+            <br />
+            Sept 2019 – Dec2020
+            <div className="experienceDetail">
+              <br />• Led a team of 4 developers with operations, priorities,
+              and development goals, utilizing Agile techniques such as
+              daily/weekly scrums.
+              <br /> • Weekly meeting with client and project lead. <br />•
+              Constructed, optimized, and tested online wellness platform, from
+              the ground up, despite tight deadlines. <br />• guided and
+              assisted back-end development, front-end development, and database
+              management
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function Skills() {
+  return (
+    <>
+      <div className="Experiencenheading">Skills</div>
+      <div className="container">
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiJava />
+          </div>
+          <div class="toolTiptext">Java</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiPhp />
+          </div>
+          <div class="toolTiptext">Php</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiJavascript />
+          </div>
+          <div class="toolTiptext">JavaScript</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiTypescript />
+          </div>
+          <div class="toolTiptext">TypeScript</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiPython />
+          </div>
+          <div class="toolTiptext">Python</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiHtml5 />
+          </div>
+          <div class="toolTiptext">HTML 5</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiCss3 />
+          </div>
+          <div class="toolTiptext">Css 3</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiAndroid />
+          </div>
+          <div class="toolTiptext">Android Studio</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiReact />
+          </div>
+          <div class="toolTiptext">React</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiNodejsSmall />
+          </div>
+          <div class="toolTiptext">Node.js</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiCplusplus />
+          </div>
+          <div class="toolTiptext">C++</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <DiMysql />
+          </div>
+          <div class="toolTiptext">My SQL</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiR />
+          </div>
+          <div class="toolTiptext">R</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiNestjs />
+          </div>
+          <div class="toolTiptext">Nest.js</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiFlutter />
+          </div>
+          <div class="toolTiptext">Flutter</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiDart />
+          </div>
+          <div class="toolTiptext">Dart</div>
+        </div>
+        <div className="SkillsBox toolTip">
+          <div className="SkillsIcon">
+            <SiFirebase />
+          </div>
+          <div class="toolTiptext">Firebase</div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function Navigation() {
+  let tabs = [
+    { name: "Home", iconClass: "fas", icon: "home" },
+    { name: "Education", iconClass: "fas", icon: "graduation-cap" },
+    { name: "Experience", iconClass: "fas", icon: "user-clock" },
+    { name: "Skills", iconClass: "fas", icon: "lightbulb" },
+  ];
+  return (
+    <nav class="navigation navbar fixed-bottom ">
+      <div class="container-fluid">
+        {Object.keys(tabs).map((id) => {
+          return (
+            <a className="navTab" href={"#" + tabs[id].name}>
+              <FontAwesomeIcon icon={[tabs[id].iconClass, tabs[id].icon]} />
+              <br />
+              {tabs[id].name}
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+  );
+}
+// const lib = ["places"];
+// const id = ["794c38c2d628d148"];
+// const key = "AIzaSyAHJH3DZvncT-tCT1kDruDXfclLg04tBYU"; // PUT GMAP API KEY HERE
+// const defaultLocation = { lat: 49.24881, lng: -122.980507 };
+// export class MapContainer extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <LoadScript googleMapsApiKey={key} libraries={lib} mapIds={id}>
+//           <GoogleMap
+//             center={defaultLocation}
+//             zoom={10}
+//             options={{ mapId: "794c38c2d628d148" }}
+//             mapContainerStyle={{ height: "400px", width: "90vw" }}
+//           >
+//             <Marker position={defaultLocation} />
+//           </GoogleMap>
+//         </LoadScript>
+//       </div>
+//     );
+//   }
+// }
+
+function useOnScreen(ref, rootMargin = "0px") {
+  // State and setter for storing whether element is visible
+  const [isIntersecting, setIntersecting] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Update our state when observer callback fires
+        setIntersecting(entry.isIntersecting);
+      },
+      {
+        rootMargin,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      observer.unobserve(ref.current);
+    };
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+  return isIntersecting;
+}
 
 $(function () {
   var signalz = new Signalz("#cvs");
@@ -268,360 +648,3 @@ Signalz.prototype.draw = function () {
     this.ctx.stroke();
   }
 };
-
-function WelcomeHome(NumberOfColumns, NumberOfRows) {
-  anime({
-    targets: document.querySelectorAll("#tiles"),
-    scale: [{ value: 0, easing: "easeOutSine", duration: 500 }],
-    delay: anime.stagger(200, {
-      grid: [NumberOfColumns, NumberOfRows],
-      from: "center",
-    }),
-  });
-  anime({
-    targets: ".WelcomeButton",
-    opacity: [{ value: 0, easing: "easeOutSine", duration: 1000 }],
-  });
-  anime({
-    targets: "#cvs",
-    opacity: [{ value: 0, easing: "easeOutSine", duration: 1000 }],
-  });
-  setTimeout(() => {
-    ReactDOM.unmountComponentAtNode(document.getElementById("SplashScreen"));
-    document.getElementById("SplashScreen").remove();
-  }, 2000);
-
-  setTimeout(() => {
-    ReactDOM.render(
-      <div className="container">
-        <img src={ProfilePic} alt="Profilepicture" className="ProfilePic" />
-        <div>
-          <Typewriter
-            className="typewriter"
-            options={{
-              strings: "Hi, I'm Wasi! <br/>I am an app and web developer! ",
-              autoStart: true,
-              wrapperClassName: "typewriter",
-              cursorClassName: "typewriterCursor",
-              skipAddStyles: true,
-            }}
-          />
-          <div className="ContactFlexBox">
-            <a
-              className="ContactBox tooltip"
-              href="https://github.com/wasmiester"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon
-                icon={["fab", "github"]}
-                className="ContactIcon"
-              />
-              <span class="tooltiptext">Github</span>
-            </a>
-            <a
-              className="ContactBox tooltip"
-              href="https://www.linkedin.com/in/wasi-raza/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon
-                icon={["fab", "linkedin"]}
-                className="ContactIcon"
-              />
-              <span class="tooltiptext">Linkedin</span>
-            </a>
-            <a
-              className="ContactBox tooltip"
-              href="mailto:wasiulhassanraza@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon="envelope" className="ContactIcon" />
-              <span class="tooltiptext">Email</span>
-            </a>
-            <a
-              className="ContactBox tooltip"
-              href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Resume20211119.pdf"
-              download
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon="file" className="ContactIcon" />
-              <span class="tooltiptext">Resume</span>
-            </a>
-          </div>
-        </div>
-        <p className="scrollDownLeft">Scroll Down-&#62;</p>
-        <p className="scrollDownRight">Scroll Down-&#62;</p>
-      </div>,
-      document.getElementById("root")
-    );
-  }, 1000);
-  ReactDOM.render(<Education />, document.getElementById("education"));
-  ReactDOM.render(<Experience />, document.getElementById("experience"));
-  ReactDOM.render(<Skills />, document.getElementById("Skills"));
-  //ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
-}
-
-function Education() {
-  const ref = useRef();
-  const onScreen = useOnScreen(ref, "-10%");
-  return (
-    <div className=" largeText">
-      <p className="Educationheading">Education</p>
-      <div className="Educontainer">
-        <div className="EducationFlexBox">
-          <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
-          <div ref={ref}>
-            {onScreen ? <div className="verticleLine"></div> : <></>}
-          </div>
-          <p>
-            Bachelors in Computer Science <br />
-            Sept 2017 – Aug 2022
-          </p>
-        </div>
-        <br />
-        <br />
-        <div className="EducationFlexBox">
-          <img
-            src={DouglasCollege}
-            className="douglasPic"
-            alt="Douglas College"
-          ></img>
-          <div ref={ref}>
-            {onScreen ? <div className="verticleLine"></div> : <></>}
-          </div>
-          <p>
-            Diploma in Computer Science and Information Systems <br />
-            Oct 2013 – Aug 2017
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Experience() {
-  return (
-    <div className="experienceDiv">
-      <p className="Experiencenheading">Experience</p>
-      <div className="container">
-        <div className="experienceCard">
-          <br />
-          <img src={Atomic47} className="experiencePic" alt="Atomic47" />
-          <br />
-          Full Stack API Developer
-          <br />
-          Jan 2021 – April 2021
-          <div className="experienceDetail">
-            <br />• Helped design core API components. <br />• Worked
-            side-by-side with clients to address their requirements, and provide
-            tools to fulfil those requirements. <br />• Work with the core
-            development teams to deploy API modules as part of production
-            systems.
-            <br /> • Establish scalable, efficient, automated processes for
-            large-scale data analyses and automation.
-            <br />
-          </div>
-        </div>
-
-        <div className="experienceCard">
-          <br />
-          <img src={UBCLogo} className="experiencePic" alt="UBC" />
-          <br />
-          Co-op Faculty Learning Technologies Rover
-          <br />
-          Sept 2019 – August 2020
-          <div className="experienceDetail">
-            <br />• Provided just-in-time assistance to faculty, staff and
-            students with Canvas and its integrated/related online tools (e.g.,
-            Collaborate Ultra, Zoom, Kaltura, WeBWork). <br />• Became familiar
-            with and provide advice on learning tool availability and selection{" "}
-            <br />• Assisted course instructors and students with DIY video and
-            screen casting tools such as Kaltura Capture and Camtasia. <br />•
-            Supported users in the use of variety of integrated tools. <br />•
-            Created clear and detailed step-by-step documentation and how-to
-            videos
-          </div>
-        </div>
-
-        <div className="experienceCard">
-          <br />
-          <img src={UBCLogo} className="experiencePic" alt="UBC" />
-          <br />
-          Lead Full Stack API Developer
-          <br />
-          Sept 2019 – Dec2020
-          <div className="experienceDetail">
-            <br />• Led a team of 4 developers with operations, priorities, and
-            development goals, utilizing Agile techniques such as daily/weekly
-            scrums.
-            <br /> • Weekly meeting with client and project lead. <br />•
-            Constructed, optimized, and tested online wellness platform, from
-            the ground up, despite tight deadlines. <br />• guided and assisted
-            back-end development, front-end development, and database management
-            <br />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Skills() {
-  return (
-    <div>
-      <p className="Experiencenheading">Skills</p>
-      <div className="container">
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiJava />
-          </div>
-          <div class="tooltiptext">Java</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiPhp />
-          </div>
-          <div class="tooltiptext">Php</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiJavascript />
-          </div>
-          <div class="tooltiptext">JavaScript</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiTypescript />
-          </div>
-          <div class="tooltiptext">TypeScript</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiPython />
-          </div>
-          <div class="tooltiptext">Python</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiHtml5 />
-          </div>
-          <div class="tooltiptext">HTML 5</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiCss3 />
-          </div>
-          <div class="tooltiptext">Css 3</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiAndroid />
-          </div>
-          <div class="tooltiptext">Android Studio</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiReact />
-          </div>
-          <div class="tooltiptext">React</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiNodejsSmall />
-          </div>
-          <div class="tooltiptext">Node.js</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiCplusplus />
-          </div>
-          <div class="tooltiptext">C++</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <DiMysql />
-          </div>
-          <div class="tooltiptext">My SQL</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiR />
-          </div>
-          <div class="tooltiptext">R</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiNestjs />
-          </div>
-          <div class="tooltiptext">Nest.js</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiFlutter />
-          </div>
-          <div class="tooltiptext">Flutter</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiDart />
-          </div>
-          <div class="tooltiptext">Dart</div>
-        </div>
-        <div className="SkillsBox tooltip">
-          <div className="SkillsIcon">
-            <SiFirebase />
-          </div>
-          <div class="tooltiptext">Firebase</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-// const lib = ["places"];
-// const id = ["794c38c2d628d148"];
-// const key = "AIzaSyAHJH3DZvncT-tCT1kDruDXfclLg04tBYU"; // PUT GMAP API KEY HERE
-// const defaultLocation = { lat: 49.24881, lng: -122.980507 };
-// export class MapContainer extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <LoadScript googleMapsApiKey={key} libraries={lib} mapIds={id}>
-//           <GoogleMap
-//             center={defaultLocation}
-//             zoom={10}
-//             options={{ mapId: "794c38c2d628d148" }}
-//             mapContainerStyle={{ height: "400px", width: "90vw" }}
-//           >
-//             <Marker position={defaultLocation} />
-//           </GoogleMap>
-//         </LoadScript>
-//       </div>
-//     );
-//   }
-// }
-
-function useOnScreen(ref, rootMargin = "0px") {
-  // State and setter for storing whether element is visible
-  const [isIntersecting, setIntersecting] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update our state when observer callback fires
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin,
-      }
-    );
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => {
-      observer.unobserve(ref.current);
-    };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
-  return isIntersecting;
-}
