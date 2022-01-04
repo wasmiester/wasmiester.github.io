@@ -245,7 +245,20 @@ canvas {
   flex-wrap: wrap;
   margin-top: center;
   justify-content: center;
-  height: 90vh;
+  height: 90%;
+  width: 100%;
+}
+
+.SkillsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  gap: 0.625em 1.25em;
+  flex-wrap: wrap;
+  margin-top: center;
+  justify-content: center;
+  height: 90%;
   width: 100%;
 }
 
@@ -266,14 +279,13 @@ canvas {
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  align-items: left;
   align-content: center;
   gap: 0.625em 1.25em;
   flex-wrap: wrap;
-  margin-top: center;
   justify-content: center;
-  height: 80vh;
+  height: 85%;
   width: 100%;
+  
 }
 
 .typewriter {
@@ -422,16 +434,18 @@ canvas {
   width: auto;
 }
 
+ul{
+  display: "contents"
+}
 .navigation {
   position: fixed !important;
   margin: auto;
-  height: 75px;
   padding-top: 15px;
   box-shadow: 0px 0px 8px 0px;
   -webkit-box-shadow: 0px 0px 8px 0px;
   -moz-box-shadow: 0px 0px 8px 0px;
   background-color: #1f2833;
-  width: 30%;
+  width: 350px;
   z-index: 100;
   text-align: center;
 }
@@ -441,7 +455,7 @@ canvas {
   text-decoration: none;
 }
 
-.navTab:active {
-  color: #e6784c;
+.is-current {
+  color: #baff29;
   text-decoration: none;
 }

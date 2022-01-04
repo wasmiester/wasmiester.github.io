@@ -13,7 +13,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import Typewriter from "typewriter-effect";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-
+import Scrollspy from "react-scrollspy";
 //import { Marker} from "react-google-maps"
 
 import UBCLogo from "./UBC-logo-2018-crest-white-rgb72.png";
@@ -198,8 +198,6 @@ function WelcomeHome(NumberOfColumns, NumberOfRows) {
             </a>
           </div>
         </div>
-        <p className="scrollDownLeft">Scroll Down-&#62;</p>
-        <p className="scrollDownRight">Scroll Down-&#62;</p>
       </div>,
       document.getElementById("Home")
     );
@@ -320,7 +318,7 @@ function Skills() {
   return (
     <>
       <div className="Experiencenheading">Skills</div>
-      <div className="container">
+      <div className="SkillsContainer">
         <div className="SkillsBox toolTip">
           <div className="SkillsIcon">
             <DiJava />
@@ -435,22 +433,46 @@ function Navigation() {
     { name: "Experience", iconClass: "fas", icon: "user-clock" },
     { name: "Skills", iconClass: "fas", icon: "lightbulb" },
   ];
+   const Style = {
+     display: "contents",
+   };
   return (
     <nav class="navigation navbar fixed-bottom ">
       <div class="container-fluid">
-        {Object.keys(tabs).map((id) => {
-          return (
-            <a className="navTab" href={"#" + tabs[id].name}>
-              <FontAwesomeIcon icon={[tabs[id].iconClass, tabs[id].icon]} />
-              <br />
-              {tabs[id].name}
-            </a>
-          );
-        })}
+        <Scrollspy
+          items={["Home", "Education", "Experience", "Skills"]}
+          currentClassName="is-current"
+          style={Style}
+        >
+          {Object.keys(tabs).map((id) => {
+            return (
+              <a className="navTab" href={"#" + tabs[id].name}>
+                <FontAwesomeIcon icon={[tabs[id].iconClass, tabs[id].icon]} />
+                <br />
+                {tabs[id].name}
+              </a>
+            );
+          })}
+        </Scrollspy>
       </div>
     </nav>
   );
 }
+
+// {
+//   Object.keys(tabs).map((id) => {
+//     return (
+//       <li>
+//         <a className="navTab nav-item" href={"#" + tabs[id].name}>
+//           <FontAwesomeIcon icon={[tabs[id].iconClass, tabs[id].icon]} />
+//           <br />
+//           {tabs[id].name}
+//         </a>
+//       </li>
+//     );
+//   });
+// }
+
 // const lib = ["places"];
 // const id = ["794c38c2d628d148"];
 // const key = "AIzaSyAHJH3DZvncT-tCT1kDruDXfclLg04tBYU"; // PUT GMAP API KEY HERE
