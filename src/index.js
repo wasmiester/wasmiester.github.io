@@ -2,22 +2,25 @@ import { Component } from "react";
 import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import anime from "animejs";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../src/style.scss";
-import $ from "jquery";
 import ProfilePic from "./ProfilePic.jpg";
-import { render } from "@testing-library/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import Typewriter from "typewriter-effect";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+//import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import Scrollspy from "react-scrollspy";
 //import { Marker} from "react-google-maps"
+import Particles from "react-tsparticles";
 
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../src/style.scss";
+
+import Atomic47 from "./Atomic47.png";
 import UBCLogo from "./UBC-logo-2018-crest-white-rgb72.png";
 import DouglasCollege from "./DouglasCollege.png";
+
 import {
   DiJava,
   DiPhp,
@@ -41,13 +44,20 @@ import {
   SiFirebase,
 } from "react-icons/si";
 
-import Atomic47 from "./Atomic47.png";
 //import "animate.css/animate.min.css";
 
 library.add(fab, fas);
-//const anime = require('animejs')
-//window.addEventListener("resize", Coolio);
-// Hook
+
+ReactDOM.render(<FaceProfile />, document.getElementById("Home"));
+ReactDOM.render(<Education />, document.getElementById("Education"));
+ReactDOM.render(<Experience />, document.getElementById("Experience"));
+ReactDOM.render(<Skills />, document.getElementById("Skills"));
+ReactDOM.render(<Navigation />, document.getElementById("navigation"));
+ReactDOM.render(<BgParticles />, document.getElementById("tsparticles"));
+//ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
+
+
+
 function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
@@ -74,184 +84,141 @@ function useWindowSize() {
   return windowSize;
 }
 
-function Coolio() {
-  let GridBoxes = [];
-  var GridWave = [];
-  var { width, height } = useWindowSize();
-  var NumberOfColumns = parseInt(width / 100) + 1;
-  var NumberOfRows = parseInt(height / 100) + 1;
-  var NumberOfSquares = NumberOfColumns * NumberOfRows;
-  GridWave["--grid-template-columns"] =
-    "repeat(" + NumberOfColumns + ", 100px)";
-  GridWave["--grid-template-rows"] = "repeat(" + NumberOfRows + ", 100px)";
-
-  console.log("squares = " + NumberOfSquares);
-  console.log(width + " columns = " + NumberOfColumns);
-  console.log(height + " rows = " + NumberOfRows);
-
-  var midButtinArray = [];
-  midButtinArray["top"] = height / 2 - 25 + "px";
-  midButtinArray["left"] = width / 2 - 110 + "px";
-  console.log(midButtinArray);
-  for (var i = 0; i < NumberOfSquares; i++) {
-    GridBoxes.push(<div className="square" id="tiles" />);
-  }
-  return (
-    <div id="GridLayer" className="grid" style={GridWave}>
-      {GridBoxes}
-      <button
-        className="WelcomeButton glow-on-hover"
-        id="WelcomeBtn"
-        style={midButtinArray}
-        onClick={() => WelcomeHome(NumberOfColumns, NumberOfRows)}
-      >
-        Hello World!
-      </button>
-    </div>
-  );
-}
-
-ReactDOM.render(<Coolio />, document.getElementById("boxes"));
-
-//document.getElementById("WelcomeBtn").onclick = console.log(document.querySelectorAll("#tiles"));
-
-function WelcomeHome(NumberOfColumns, NumberOfRows) {
-  anime({
-    targets: document.querySelectorAll("#tiles"),
-    scale: [{ value: 0, easing: "easeOutSine", duration: 500 }],
-    delay: anime.stagger(200, {
-      grid: [NumberOfColumns, NumberOfRows],
-      from: "center",
-    }),
-  });
-  anime({
-    targets: ".WelcomeButton",
-    opacity: [{ value: 0, easing: "easeOutSine", duration: 1000 }],
-  });
-  anime({
-    targets: "#cvs",
-    opacity: [{ value: 0, easing: "easeOutSine", duration: 1000 }],
-  });
-  setTimeout(() => {
-    ReactDOM.unmountComponentAtNode(document.getElementById("SplashScreen"));
-    document.getElementById("SplashScreen").remove();
-  }, 2000);
-
-  setTimeout(() => {
-    ReactDOM.render(
-      <div className="container">
-        <img src={ProfilePic} alt="Profilepicture" className="ProfilePic" />
-        <div>
-          <Typewriter
-            className="typewriter"
-            options={{
-              strings: "Hi, I'm Wasi! <br/>I am an app and web developer! ",
-              autoStart: true,
-              wrapperClassName: "typewriter",
-              cursorClassName: "typewriterCursor",
-              skipAddStyles: true,
-            }}
-          />
-          <div className="ContactFlexBox">
-            <a
-              className="ContactBox toolTip"
-              href="https://github.com/wasmiester"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon
-                icon={["fab", "github"]}
-                className="ContactIcon"
-              />
-              <span class="toolTiptext">Github</span>
-            </a>
-            <a
-              className="ContactBox toolTip"
-              href="https://www.linkedin.com/in/wasi-raza/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon
-                icon={["fab", "linkedin"]}
-                className="ContactIcon"
-              />
-              <span class="toolTiptext">Linkedin</span>
-            </a>
-            <a
-              className="ContactBox toolTip"
-              href="mailto:wasiulhassanraza@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon="envelope" className="ContactIcon" />
-              <span class="toolTiptext">Email</span>
-            </a>
-            <a
-              className="ContactBox toolTip"
-              href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Resume20220103.pdf"
-              download
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon="file" className="ContactIcon" />
-              <span class="toolTiptext">Resume</span>
-            </a>
-          </div>
-        </div>
-      </div>,
-      document.getElementById("Home")
+function useOnScreen(ref, rootMargin = "0px") {
+  // State and setter for storing whether element is visible
+  const [isIntersecting, setIntersecting] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Update our state when observer callback fires
+        setIntersecting(entry.isIntersecting);
+      },
+      {
+        rootMargin,
+      }
     );
-  }, 1000);
-  ReactDOM.render(<Education />, document.getElementById("Education"));
-  ReactDOM.render(<Experience />, document.getElementById("Experience"));
-  ReactDOM.render(<Skills />, document.getElementById("Skills"));
-  ReactDOM.render(<Navigation />, document.getElementById("navigation"));
-  //ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      observer.unobserve(ref.current);
+    };
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+  return isIntersecting;
 }
 
-function Education() {
-  const ref = useRef();
-  const onScreen = useOnScreen(ref, "-10%");
+
+function FaceProfile() {
   return (
-    <div className=" largeText">
-      <p className="Educationheading">Education</p>
-      <div className="Educontainer">
-        <div className="EducationFlexBox">
-          <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
-          <div ref={ref}>
-            {onScreen ? <div className="verticleLine"></div> : <></>}
-          </div>
-          <p>
-            Bachelors in Computer Science <br />
-            Sept 2017 – Aug 2022
-          </p>
-        </div>
-        <br />
-        <br />
-        <div className="EducationFlexBox">
-          <img
-            src={DouglasCollege}
-            className="douglasPic"
-            alt="Douglas College"
-          ></img>
-          <div ref={ref}>
-            {onScreen ? <div className="verticleLine"></div> : <></>}
-          </div>
-          <p>
-            Diploma in Computer Science and Information Systems <br />
-            Oct 2013 – Aug 2017
-          </p>
+    <div className="profileContainer vh-100">
+      <img src={ProfilePic} alt="Profilepicture" className="ProfilePic" />
+      <div>
+        <Typewriter
+          className="typewriter"
+          options={{
+            strings: "Hi, I'm Wasi! <br/>I am an app and web developer! ",
+            autoStart: true,
+            wrapperClassName: "typewriter",
+            cursorClassName: "typewriterCursor",
+            skipAddStyles: true,
+          }}
+        />
+        <div className="ContactFlexBox">
+          <a
+            className="ContactBox toolTip"
+            href="https://github.com/wasmiester"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon={["fab", "github"]} className="ContactIcon" />
+            <span class="toolTiptext">Github</span>
+          </a>
+          <a
+            className="ContactBox toolTip"
+            href="https://www.linkedin.com/in/wasi-raza/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon
+              icon={["fab", "linkedin"]}
+              className="ContactIcon"
+            />
+            <span class="toolTiptext">Linkedin</span>
+          </a>
+          <a
+            className="ContactBox toolTip"
+            href="mailto:wasiulhassanraza@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon="envelope" className="ContactIcon" />
+            <span class="toolTiptext">Email</span>
+          </a>
+          <a
+            className="ContactBox toolTip"
+            href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Resume20220103.pdf"
+            download
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon="file" className="ContactIcon" />
+            <span class="toolTiptext">Resume</span>
+          </a>
         </div>
       </div>
     </div>
   );
 }
 
+function Education() {
+  const ref = useRef();
+  const onScreen = useOnScreen(ref, "-10%");
+  return (
+    <>
+      <div className="vh-100">
+        <p className="Experiencenheading" id="Educationheading">
+          Education
+        </p>
+        <div className="EducationContainer  largeText">
+          <div className="EducationFlexBox">
+            <img src={UBCLogo} className="ubcPic" alt="UBC logo"></img>
+            <div ref={ref}>
+              {onScreen ? <div className="verticleLine"></div> : <></>}
+            </div>
+            <p>
+              Bachelors in Computer Science <br />
+              Sept 2017 – Aug 2022
+            </p>
+          </div>
+          <br />
+          <br />
+          <div className="EducationFlexBox">
+            <img
+              src={DouglasCollege}
+              className="douglasPic"
+              alt="Douglas College"
+            ></img>
+            <div ref={ref}>
+              {onScreen ? <div className="verticleLine"></div> : <></>}
+            </div>
+            <p>
+              Diploma in Computer Science and Information Systems <br />
+              Oct 2013 – Aug 2017
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 function Experience() {
   return (
     <>
-      <p className="Experiencenheading">Experience</p>
-      <div className="container">
+      <p className="Experiencenheading" id="Experienceheading">
+        Experience
+      </p>
+      <div className="globalUseContainer">
         <div className="experienceDiv">
           <div className="experienceCard">
             <img src={Atomic47} className="experiencePic" alt="Atomic47" />
@@ -317,109 +284,113 @@ function Experience() {
 function Skills() {
   return (
     <>
-      <div className="Experiencenheading">Skills</div>
-      <div className="SkillsContainer">
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiJava />
+      <div className="Experiencenheading" id="Skillsheading">
+        Skills
+      </div>
+      <div className="globalUseContainer">
+        <div className="SkillsContainer">
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiJava />
+            </div>
+            <div class="toolTiptext">Java</div>
           </div>
-          <div class="toolTiptext">Java</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiPhp />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiPhp />
+            </div>
+            <div class="toolTiptext">Php</div>
           </div>
-          <div class="toolTiptext">Php</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiJavascript />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiJavascript />
+            </div>
+            <div class="toolTiptext">JavaScript</div>
           </div>
-          <div class="toolTiptext">JavaScript</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiTypescript />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiTypescript />
+            </div>
+            <div class="toolTiptext">TypeScript</div>
           </div>
-          <div class="toolTiptext">TypeScript</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiPython />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiPython />
+            </div>
+            <div class="toolTiptext">Python</div>
           </div>
-          <div class="toolTiptext">Python</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiHtml5 />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiHtml5 />
+            </div>
+            <div class="toolTiptext">HTML 5</div>
           </div>
-          <div class="toolTiptext">HTML 5</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiCss3 />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiCss3 />
+            </div>
+            <div class="toolTiptext">Css 3</div>
           </div>
-          <div class="toolTiptext">Css 3</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiAndroid />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiAndroid />
+            </div>
+            <div class="toolTiptext">Android Studio</div>
           </div>
-          <div class="toolTiptext">Android Studio</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiReact />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiReact />
+            </div>
+            <div class="toolTiptext">React</div>
           </div>
-          <div class="toolTiptext">React</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiNodejsSmall />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiNodejsSmall />
+            </div>
+            <div class="toolTiptext">Node.js</div>
           </div>
-          <div class="toolTiptext">Node.js</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiCplusplus />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiCplusplus />
+            </div>
+            <div class="toolTiptext">C++</div>
           </div>
-          <div class="toolTiptext">C++</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <DiMysql />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <DiMysql />
+            </div>
+            <div class="toolTiptext">My SQL</div>
           </div>
-          <div class="toolTiptext">My SQL</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiR />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiR />
+            </div>
+            <div class="toolTiptext">R</div>
           </div>
-          <div class="toolTiptext">R</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiNestjs />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiNestjs />
+            </div>
+            <div class="toolTiptext">Nest.js</div>
           </div>
-          <div class="toolTiptext">Nest.js</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiFlutter />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiFlutter />
+            </div>
+            <div class="toolTiptext">Flutter</div>
           </div>
-          <div class="toolTiptext">Flutter</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiDart />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiDart />
+            </div>
+            <div class="toolTiptext">Dart</div>
           </div>
-          <div class="toolTiptext">Dart</div>
-        </div>
-        <div className="SkillsBox toolTip">
-          <div className="SkillsIcon">
-            <SiFirebase />
+          <div className="SkillsBox toolTip">
+            <div className="SkillsIcon">
+              <SiFirebase />
+            </div>
+            <div class="toolTiptext">Firebase</div>
           </div>
-          <div class="toolTiptext">Firebase</div>
         </div>
       </div>
     </>
@@ -433,15 +404,16 @@ function Navigation() {
     { name: "Experience", iconClass: "fas", icon: "user-clock" },
     { name: "Skills", iconClass: "fas", icon: "lightbulb" },
   ];
-   const Style = {
-     display: "contents",
-   };
+  const Style = {
+    display: "contents",
+  };
   return (
     <nav class="navigation navbar fixed-bottom ">
       <div class="container-fluid">
         <Scrollspy
           items={["Home", "Education", "Experience", "Skills"]}
           currentClassName="is-current"
+          offset={-100}
           style={Style}
         >
           {Object.keys(tabs).map((id) => {
@@ -459,19 +431,521 @@ function Navigation() {
   );
 }
 
-// {
-//   Object.keys(tabs).map((id) => {
-//     return (
-//       <li>
-//         <a className="navTab nav-item" href={"#" + tabs[id].name}>
-//           <FontAwesomeIcon icon={[tabs[id].iconClass, tabs[id].icon]} />
-//           <br />
-//           {tabs[id].name}
-//         </a>
-//       </li>
-//     );
-//   });
-// }
+function BgParticles() {
+  const particlesInit = (main) => {
+    console.log(main);
+
+    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+  };
+
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
+  return (
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
+      options={{
+        autoPlay: true,
+        background: {
+          color: {
+            value: "",
+          },
+          image: "",
+          position: "50% 50%",
+          repeat: "no-repeat",
+          size: "cover",
+          opacity: 0,
+        },
+        backgroundMask: {
+          composite: "destination-out",
+          cover: {
+            color: {
+              value: "#fff",
+            },
+            opacity: 1,
+          },
+          enable: false,
+        },
+        fullScreen: {
+          enable: true,
+          zIndex: -100,
+        },
+        detectRetina: true,
+        duration: 0,
+        fpsLimit: 60,
+        interactivity: {
+          detectsOn: "window",
+          events: {
+            onClick: {
+              enable: false,
+              mode: [],
+            },
+            onDiv: {
+              selectors: [],
+              enable: false,
+              mode: [],
+              type: "circle",
+            },
+            onHover: {
+              enable: false,
+              mode: [],
+              parallax: {
+                enable: false,
+                force: 2,
+                smooth: 10,
+              },
+            },
+            resize: true,
+          },
+          modes: {
+            attract: {
+              distance: 200,
+              duration: 0.4,
+              easing: "ease-out-quad",
+              factor: 1,
+              maxSpeed: 50,
+              speed: 1,
+            },
+            bounce: {
+              distance: 200,
+            },
+            bubble: {
+              distance: 200,
+              duration: 0.4,
+              mix: false,
+            },
+            connect: {
+              distance: 80,
+              links: {
+                opacity: 0.5,
+              },
+              radius: 60,
+            },
+            grab: {
+              distance: 100,
+              links: {
+                blink: false,
+                consent: false,
+                opacity: 1,
+              },
+            },
+            light: {
+              area: {
+                gradient: {
+                  start: {
+                    value: "#ffffff",
+                  },
+                  stop: {
+                    value: "#000000",
+                  },
+                },
+                radius: 1000,
+              },
+              shadow: {
+                color: {
+                  value: "#000000",
+                },
+                length: 2000,
+              },
+            },
+            push: {
+              default: true,
+              groups: [],
+              quantity: 4,
+            },
+            remove: {
+              quantity: 2,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+              factor: 100,
+              speed: 1,
+              maxSpeed: 50,
+              easing: "ease-out-quad",
+            },
+            slow: {
+              factor: 3,
+              radius: 200,
+            },
+            trail: {
+              delay: 1,
+              pauseOnStop: false,
+              quantity: 1,
+            },
+          },
+        },
+        manualParticles: [],
+        motion: {
+          disable: false,
+          reduce: {
+            factor: 4,
+            value: true,
+          },
+        },
+        particles: {
+          bounce: {
+            horizontal: {
+              random: {
+                enable: false,
+                minimumValue: 0.1,
+              },
+              value: 1,
+            },
+            vertical: {
+              random: {
+                enable: false,
+                minimumValue: 0.1,
+              },
+              value: 1,
+            },
+          },
+          collisions: {
+            bounce: {
+              horizontal: {
+                random: {
+                  enable: false,
+                  minimumValue: 0.1,
+                },
+                value: 1,
+              },
+              vertical: {
+                random: {
+                  enable: false,
+                  minimumValue: 0.1,
+                },
+                value: 1,
+              },
+            },
+            enable: false,
+            mode: "bounce",
+            overlap: {
+              enable: true,
+              retries: 0,
+            },
+          },
+          color: {
+            value: "#fff",
+            animation: {
+              h: {
+                count: 0,
+                enable: false,
+                offset: 0,
+                speed: 1,
+                sync: true,
+              },
+              s: {
+                count: 0,
+                enable: false,
+                offset: 0,
+                speed: 1,
+                sync: true,
+              },
+              l: {
+                count: 0,
+                enable: false,
+                offset: 0,
+                speed: 1,
+                sync: true,
+              },
+            },
+          },
+          destroy: {
+            mode: "none",
+            split: {
+              count: 1,
+              factor: {
+                random: {
+                  enable: false,
+                  minimumValue: 0,
+                },
+                value: 3,
+              },
+              rate: {
+                random: {
+                  enable: false,
+                  minimumValue: 0,
+                },
+                value: {
+                  min: 4,
+                  max: 9,
+                },
+              },
+              sizeOffset: true,
+            },
+          },
+          gradient: [],
+          groups: {},
+          life: {
+            count: 0,
+            delay: {
+              random: {
+                enable: false,
+                minimumValue: 0,
+              },
+              value: 0,
+              sync: false,
+            },
+            duration: {
+              random: {
+                enable: false,
+                minimumValue: 0.0001,
+              },
+              value: 0,
+              sync: false,
+            },
+          },
+          links: {
+            blink: false,
+            color: {
+              value: "#fff",
+            },
+            consent: false,
+            distance: 150,
+            enable: true,
+            frequency: 1,
+            opacity: 1,
+            shadow: {
+              blur: 5,
+              color: {
+                value: "#00ff00",
+              },
+              enable: false,
+            },
+            triangles: {
+              enable: false,
+              frequency: 1,
+            },
+            width: 1,
+            warp: false,
+          },
+          move: {
+            angle: {
+              offset: 0,
+              value: 90,
+            },
+            attract: {
+              distance: 200,
+              enable: false,
+              rotate: {
+                x: 3000,
+                y: 3000,
+              },
+            },
+            decay: 0,
+            distance: {},
+            direction: "none",
+            drift: 0,
+            enable: true,
+            gravity: {
+              acceleration: 9.81,
+              enable: false,
+              inverse: false,
+              maxSpeed: 50,
+            },
+            path: {
+              clamp: true,
+              delay: {
+                random: {
+                  enable: false,
+                  minimumValue: 0,
+                },
+                value: 0,
+              },
+              enable: false,
+              options: {},
+            },
+            outModes: {
+              default: "out",
+            },
+            random: false,
+            size: false,
+            speed: 2,
+            spin: {
+              acceleration: 0,
+              enable: false,
+            },
+            straight: false,
+            trail: {
+              enable: false,
+              length: 10,
+              fillColor: {
+                value: "#000000",
+              },
+            },
+            vibrate: false,
+            warp: false,
+          },
+          number: {
+            density: {
+              enable: false,
+              area: 800,
+              factor: 1000,
+            },
+            limit: 0,
+            value: 100,
+          },
+          opacity: {
+            random: {
+              enable: false,
+              minimumValue: 0.1,
+            },
+            value: 1,
+            animation: {
+              count: 0,
+              enable: false,
+              speed: 2,
+              sync: false,
+              destroy: "none",
+              startValue: "random",
+            },
+          },
+          orbit: {
+            animation: {
+              count: 0,
+              enable: false,
+              speed: 1,
+              sync: false,
+            },
+            enable: false,
+            opacity: 1,
+            rotation: {
+              random: {
+                enable: false,
+                minimumValue: 0,
+              },
+              value: 45,
+            },
+            width: 1,
+          },
+          reduceDuplicates: false,
+          repulse: {
+            random: {
+              enable: false,
+              minimumValue: 0,
+            },
+            value: 0,
+            enabled: false,
+            distance: 1,
+            duration: 1,
+            factor: 1,
+            speed: 1,
+          },
+          roll: {
+            darken: {
+              enable: false,
+              value: 0,
+            },
+            enable: false,
+            enlighten: {
+              enable: false,
+              value: 0,
+            },
+            mode: "vertical",
+            speed: 25,
+          },
+          rotate: {
+            random: {
+              enable: false,
+              minimumValue: 0,
+            },
+            value: 0,
+            animation: {
+              enable: false,
+              speed: 0,
+              sync: false,
+            },
+            direction: "clockwise",
+            path: false,
+          },
+          shadow: {
+            blur: 0,
+            color: {
+              value: "#000000",
+            },
+            enable: false,
+            offset: {
+              x: 0,
+              y: 0,
+            },
+          },
+          shape: {
+            options: {},
+            type: "circle",
+          },
+          size: {
+            random: {
+              enable: false,
+              minimumValue: 1,
+            },
+            value: 1,
+            animation: {
+              count: 0,
+              enable: false,
+              speed: 5,
+              sync: false,
+              destroy: "none",
+              startValue: "random",
+            },
+          },
+          stroke: {
+            width: 0,
+          },
+          tilt: {
+            random: {
+              enable: false,
+              minimumValue: 0,
+            },
+            value: 0,
+            animation: {
+              enable: false,
+              speed: 0,
+              sync: false,
+            },
+            direction: "clockwise",
+            enable: false,
+          },
+          twinkle: {
+            lines: {
+              enable: false,
+              frequency: 0.05,
+              opacity: 1,
+            },
+            particles: {
+              enable: false,
+              frequency: 0.05,
+              opacity: 1,
+            },
+          },
+          wobble: {
+            distance: 5,
+            enable: false,
+            speed: 50,
+          },
+          zIndex: {
+            random: {
+              enable: false,
+              minimumValue: 0,
+            },
+            value: 0,
+            opacityRate: 1,
+            sizeRate: 1,
+            velocityRate: 1,
+          },
+        },
+        pauseOnBlur: true,
+        pauseOnOutsideViewport: true,
+        responsive: [],
+        themes: [],
+        zLayers: 100,
+      }}
+    />
+  );
+}
+
 
 // const lib = ["places"];
 // const id = ["794c38c2d628d148"];
@@ -495,178 +969,3 @@ function Navigation() {
 //     );
 //   }
 // }
-
-function useOnScreen(ref, rootMargin = "0px") {
-  // State and setter for storing whether element is visible
-  const [isIntersecting, setIntersecting] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update our state when observer callback fires
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin,
-      }
-    );
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => {
-      observer.unobserve(ref.current);
-    };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
-  return isIntersecting;
-}
-
-$(function () {
-  var signalz = new Signalz("#cvs");
-});
-
-//Line model
-
-var Line = function (x, y) {
-  this.location = {
-    x: x,
-    y: y,
-  };
-
-  this.width = Math.random() * 3 + 0.25;
-  this.color = "hsla(" + ~~(Math.random() * 360) + ", 100%, 70%, 1)";
-};
-
-//Signalz;
-
-var Signalz = function (element) {
-  this.canvas = null;
-  this.ctx = null;
-  this.center = { x: null, y: null };
-  this.drawNo = 0;
-
-  this.linesNo = 50;
-  this.linesSize = 20;
-  this.lines = [];
-
-  // init
-  this.init(element);
-};
-
-Signalz.prototype.init = function (element) {
-  // setup & attach to canvas
-  this.setup(element);
-
-  // create lines
-  for (var i = 0; i < this.linesNo; i++)
-    this.lines.push(new Line(this.center.x, this.center.y));
-
-  // animate
-  this.animate();
-};
-
-Signalz.prototype.setup = function (element) {
-  var cvs = document.querySelector(element);
-
-  // set canvas to full window size
-  cvs.width = window.innerWidth;
-  cvs.height = window.innerHeight;
-
-  // set pointers
-  this.canvas = cvs;
-  this.ctx = cvs.getContext("2d");
-
-  // calc center of stage/window
-  this.center.x = Math.round(this.canvas.width / 2);
-  this.center.y = Math.round(this.canvas.height / 2);
-
-  // handle window resize
-  window.addEventListener("resize", this.onScreenResize.bind(this));
-};
-
-Signalz.prototype.onScreenResize = function () {
-  // reset canvas to full window size
-  this.canvas.width = window.innerWidth;
-  this.canvas.height = window.innerHeight;
-
-  // recalc center of stage/window
-  this.center.x = Math.round(this.canvas.width / 2);
-  this.center.y = Math.round(this.canvas.height / 2);
-
-  // recenter lines
-  if (this.lines.center)
-    this.lines.forEach(function (line) {
-      line.location.x = this.center.x;
-      line.location.y = this.center.y;
-    });
-};
-
-Signalz.prototype.animate = function () {
-  // request new frame
-  requestAnimationFrame(this.animate.bind(this));
-  this.draw();
-};
-
-Signalz.prototype.draw = function () {
-  // clear canvas
-
-  this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-  // update draw number
-  this.drawNo++;
-  if (this.drawNo % 2 === 1) {
-    return;
-  }
-
-  // draw & update lines
-  for (var idx = 0; idx < this.lines.length; idx++) {
-    // get line
-    var line = this.lines[idx];
-    var lineSize = this.linesSize;
-
-    // random direction
-    var dir = ~~(Math.random() * 3) * 90;
-    if (idx % 4 === dir / 90) {
-      dir = 270;
-    }
-
-    // begin line path
-    this.ctx.lineWidth = line.width;
-    this.ctx.strokeStyle = line.color;
-    this.ctx.beginPath();
-    this.ctx.moveTo(line.location.x, line.location.y);
-
-    // switch direction
-    switch (dir) {
-      case 0:
-        line.location.y -= lineSize;
-        break;
-      case 90:
-        line.location.x += lineSize;
-        break;
-      case 180:
-        line.location.y += lineSize;
-        break;
-      case 270:
-        line.location.x -= lineSize;
-        break;
-      default:
-        break;
-    }
-
-    // move line to
-    this.ctx.lineTo(line.location.x, line.location.y);
-
-    // reset line location if offscreen
-    if (
-      line.location.x < 0 ||
-      line.location.x > this.canvas.width ||
-      line.location.y < 0 ||
-      line.location.y > this.canvas.height
-    ) {
-      line.location.x = this.center.x;
-      line.location.y = this.center.y;
-    }
-
-    // stroke line
-    this.ctx.stroke();
-  }
-};
