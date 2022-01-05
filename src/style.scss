@@ -39,9 +39,9 @@ p {
   flex-wrap: nowrap;
   align-items: center;
   align-content: center;
-  gap: 0.625em 1.25em;
+  gap: 0.625em;
   word-wrap: break-word;
-  margin-top: 0.625em;
+
 }
 .ContactFlexBox {
   display: flex; /* or inline-flex */
@@ -120,9 +120,10 @@ p {
   flex-direction: column;
   word-wrap: break-word;
   align-content: center;
-  gap: 0.625em 1.25em;
+  gap:  2em;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 100px;
 }
 
 .typewriter {
@@ -173,7 +174,7 @@ p {
 
 .douglasPic {
   //size: 50px;
-  height: 5em;
+  height: 4.75em;
   margin-right: 5px;
 }
 
@@ -198,7 +199,7 @@ p {
 .Experiencenheading {
   display: grid;
   place-items: left;
-  margin-left: 2%;
+  margin: 2%;
   font-size: 4.25em;
 }
 .experienceDiv {

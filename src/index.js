@@ -175,7 +175,7 @@ function Education() {
   const onScreen = useOnScreen(ref, "-10%");
   return (
     <>
-      <div className="vh-100">
+      <div className="h-100 ">
         <p className="Experiencenheading" id="Educationheading">
           Education
         </p>
@@ -190,8 +190,7 @@ function Education() {
               Sept 2017 – Aug 2022
             </p>
           </div>
-          <br />
-          <br />
+
           <div className="EducationFlexBox">
             <img
               src={DouglasCollege}
