@@ -1,5 +1,5 @@
 body {
-  background-color: #1c3041;
+  background-color: #080F1F;
   color: #4cd6e6;
   font-family: "Darker Grotesque";
   word-wrap: break-word;
@@ -209,6 +209,7 @@ p {
   flex-wrap: wrap;
   align-content: center;
   gap: 1.25em;
+  justify-content: center;
 }
 .experienceCard {
   background-color: #086788;
@@ -222,9 +223,6 @@ p {
   background-color: #1f2833;
   align-content: center;
   text-align: center;
-  width: 450px;
-  padding: 30px;
-  font-size: 1.5em;
 }
 .experienceDetail {
   text-align: left;
