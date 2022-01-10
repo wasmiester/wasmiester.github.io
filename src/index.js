@@ -13,7 +13,6 @@ import Scrollspy from "react-scrollspy";
 //import { Marker} from "react-google-maps"
 import Particles from "react-tsparticles";
 
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/style.scss";
 
@@ -55,8 +54,6 @@ ReactDOM.render(<Skills />, document.getElementById("Skills"));
 ReactDOM.render(<Navigation />, document.getElementById("navigation"));
 ReactDOM.render(<BgParticles />, document.getElementById("tsparticles"));
 //ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
-
-
 
 function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
@@ -106,7 +103,6 @@ function useOnScreen(ref, rootMargin = "0px") {
   }, []); // Empty array ensures that effect is only run on mount and unmount
   return isIntersecting;
 }
-
 
 function FaceProfile() {
   return (
@@ -281,6 +277,25 @@ function Experience() {
 }
 
 function Skills() {
+  const Skill = [
+    { name: "Java", version: <DiJava /> },
+    { name: "Php", version: <DiPhp /> },
+    { name: "JavaScript", version: <SiJavascript /> },
+    { name: "TypeScript", version: <SiTypescript /> },
+    { name: "Python", version: <DiPython /> },
+    { name: "HTML 5", version: <DiHtml5 /> },
+    { name: "CSS 3", version: <DiCss3 /> },
+    { name: "React", version: <DiReact /> },
+    { name: "Android", version: <DiAndroid /> },
+    { name: "Node.js", version: <DiNodejsSmall /> },
+    { name: "C++", version: <SiCplusplus /> },
+    { name: "MySQL", version: <DiMysql /> },
+    { name: "R", version: <SiR /> },
+    { name: "Nest.js", version: <SiNestjs /> },
+    { name: "Flutter", version: <SiFlutter /> },
+    { name: "Dart", version: <SiDart /> },
+    { name: "Firebase", version: <SiFirebase /> },
+  ];
   return (
     <>
       <div className="Experiencenheading" id="Skillsheading">
@@ -288,108 +303,14 @@ function Skills() {
       </div>
       <div className="globalUseContainer">
         <div className="SkillsContainer">
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiJava />
-            </div>
-            <div class="toolTiptext">Java</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiPhp />
-            </div>
-            <div class="toolTiptext">Php</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiJavascript />
-            </div>
-            <div class="toolTiptext">JavaScript</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiTypescript />
-            </div>
-            <div class="toolTiptext">TypeScript</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiPython />
-            </div>
-            <div class="toolTiptext">Python</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiHtml5 />
-            </div>
-            <div class="toolTiptext">HTML 5</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiCss3 />
-            </div>
-            <div class="toolTiptext">Css 3</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiAndroid />
-            </div>
-            <div class="toolTiptext">Android Studio</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiReact />
-            </div>
-            <div class="toolTiptext">React</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiNodejsSmall />
-            </div>
-            <div class="toolTiptext">Node.js</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiCplusplus />
-            </div>
-            <div class="toolTiptext">C++</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <DiMysql />
-            </div>
-            <div class="toolTiptext">My SQL</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiR />
-            </div>
-            <div class="toolTiptext">R</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiNestjs />
-            </div>
-            <div class="toolTiptext">Nest.js</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiFlutter />
-            </div>
-            <div class="toolTiptext">Flutter</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiDart />
-            </div>
-            <div class="toolTiptext">Dart</div>
-          </div>
-          <div className="SkillsBox toolTip">
-            <div className="SkillsIcon">
-              <SiFirebase />
-            </div>
-            <div class="toolTiptext">Firebase</div>
-          </div>
+          {Object.keys(Skill).map((id) => {
+            return (
+              <div className="SkillsBox toolTip">
+                <div className="SkillsIcon">{Skill[id].version}</div>
+                <div class="toolTiptext">{Skill[id].name}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
@@ -944,7 +865,6 @@ function BgParticles() {
     />
   );
 }
-
 
 // const lib = ["places"];
 // const id = ["794c38c2d628d148"];
