@@ -153,7 +153,6 @@ function FaceProfile() {
           <a
             className="ContactBox toolTip"
             href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Resume20220103.pdf"
-            download
             target="_blank"
             rel="noreferrer"
           >
