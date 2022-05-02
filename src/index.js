@@ -152,7 +152,7 @@ function FaceProfile() {
           </a>
           <a
             className="ContactBox toolTip"
-            href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Resume20220103.pdf"
+            href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/WASI_RAZA_Resume.pdf"
             download
             target="_blank"
             rel="noreferrer"
@@ -218,37 +218,19 @@ function Experience() {
           <div className="experienceCard">
             <img src={Atomic47} className="experiencePic" alt="Atomic47" />
             <br />
-            Full Stack API Developer
+            Software Developer Intern
             <br />
             Jan 2021 – April 2021
             <div className="experienceDetail">
-              <br />• Helped design core API components. <br />• Worked
-              side-by-side with clients to address their requirements, and
-              provide tools to fulfil those requirements. <br />• Work with the
-              core development teams to deploy API modules as part of production
-              systems.
-              <br /> • Establish scalable, efficient, automated processes for
-              large-scale data analyses and automation.
+              <br />• Developed, tested, and documented functionality of Nest.js
+              API to add, delete, and modify end user profiles. <br />•
+              Documented Rest API endpoint that would retrieve a receipt of what
+              cryptocurrency the user was holding, buying, or selling. <br />•
+              Made a new user sign-in portal using the React.js framework.
+              <br /> • Made a React dashboard component that would dynamically
+              set user's time zone based on their browser.
+              <br /> • Used Postman to automate testing HTTP API requests.
               <br />
-            </div>
-          </div>
-
-          <div className="experienceCard">
-            <img src={UBCLogo} className="experiencePic" alt="UBC" />
-            <br />
-            Co-op Faculty Learning Technologies Rover
-            <br />
-            Sept 2019 – August 2020
-            <div className="experienceDetail">
-              <br />• Provided just-in-time assistance to faculty, staff and
-              students with Canvas and its integrated/related online tools
-              (e.g., Collaborate Ultra, Zoom, Kaltura, WeBWork). <br />• Became
-              familiar with and provide advice on learning tool availability and
-              selection <br />• Assisted course instructors and students with
-              DIY video and screen casting tools such as Kaltura Capture and
-              Camtasia. <br />• Supported users in the use of variety of
-              integrated tools. <br />• Created clear and detailed step-by-step
-              documentation and how-to videos
             </div>
           </div>
 
@@ -259,14 +241,14 @@ function Experience() {
             <br />
             Sept 2019 – Dec2020
             <div className="experienceDetail">
-              <br />• Led a team of 4 developers with operations, priorities,
-              and development goals, utilizing Agile techniques such as
-              daily/weekly scrums.
-              <br /> • Weekly meeting with client and project lead. <br />•
-              Constructed, optimized, and tested online wellness platform, from
-              the ground up, despite tight deadlines. <br />• guided and
-              assisted back-end development, front-end development, and database
-              management
+              <br />• Designed and built a bio-data research platform <br />•
+              Used HTML and CSS to design front end web pages <br />• Utilized
+              JavaScript to construct input logic for relational databases
+              focused on patient information.
+              <br />• Used PHP and SQL to develop databases and data analysis
+              tools. <br />• Helped code and test full-stack Joomla-based web
+              application software based on Agile Scrum and Kanban approaches.
+              <br />• Wrote unit tests and corrected quality assurance concerns.
               <br />
             </div>
           </div>
