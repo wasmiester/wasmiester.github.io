@@ -112,7 +112,7 @@ function FaceProfile() {
         <Typewriter
           className="typewriter"
           options={{
-            strings: "Hi, I'm Wasi! <br/>I am an app and web developer! ",
+            strings: "Hi, I'm Wasi! <br/>A Software Engineer.",
             autoStart: true,
             wrapperClassName: "typewriter",
             cursorClassName: "typewriterCursor",
