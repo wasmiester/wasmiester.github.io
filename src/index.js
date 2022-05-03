@@ -1,17 +1,21 @@
 import { Component } from "react";
+import React from "react";
+import { createRoot } from "react-dom/client";
 import { useState, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
-import anime from "animejs";
+//import anime from "animejs";
 import ProfilePic from "./ProfilePic.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import Typewriter from "typewriter-effect";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import Typewriter from "typewriter-effect";
 //import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import Scrollspy from "react-scrollspy";
 //import { Marker} from "react-google-maps"
 import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import RepoCards from "react-gh-repo-cards";
+import "react-gh-repo-cards/dist/index.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/style.scss";
@@ -43,16 +47,40 @@ import {
   SiFirebase,
 } from "react-icons/si";
 
+
 //import "animate.css/animate.min.css";
 
 library.add(fab, fas);
 
-ReactDOM.render(<FaceProfile />, document.getElementById("Home"));
-ReactDOM.render(<Education />, document.getElementById("Education"));
-ReactDOM.render(<Experience />, document.getElementById("Experience"));
-ReactDOM.render(<Skills />, document.getElementById("Skills"));
-ReactDOM.render(<Navigation />, document.getElementById("navigation"));
-ReactDOM.render(<BgParticles />, document.getElementById("tsparticles"));
+
+
+const containerHome = document.getElementById("Home");
+const rootHome = createRoot(containerHome); // createRoot(container!) if you use TypeScript
+rootHome.render(<FaceProfile />);
+
+const containerEducation = document.getElementById("Education");
+const rootEducation = createRoot(containerEducation); // createRoot(container!) if you use TypeScript
+rootEducation.render(<Education />);
+
+const containerExperience = document.getElementById("Experience");
+const rootExperience = createRoot(containerExperience); // createRoot(container!) if you use TypeScript
+rootExperience.render(<Experience />);
+
+const containerSkills = document.getElementById("Skills");
+const rootSkills = createRoot(containerSkills); // createRoot(container!) if you use TypeScript
+rootSkills.render(<Skills />);
+
+const containerNav = document.getElementById("navigation");
+const rootNav = createRoot(containerNav); // createRoot(container!) if you use TypeScript
+rootNav.render(<Navigation />);
+
+const containerProjects = document.getElementById("projects");
+const rootProjects = createRoot(containerProjects); // createRoot(container!) if you use TypeScript
+rootProjects.render(<Projects />);
+
+const containerBgParticles = document.getElementById("tsparticles");
+const rootBgParticles = createRoot(containerBgParticles); // createRoot(container!) if you use TypeScript
+rootBgParticles.render(<BgParticles />);
 //ReactDOM.render(<MapContainer />, document.getElementById("locationMap"));
 
 function useWindowSize() {
@@ -112,7 +140,7 @@ function FaceProfile() {
         <Typewriter
           className="typewriter"
           options={{
-            strings: "Hi, I'm Wasi! <br/>A Software Engineer.",
+            strings: "Hi, I'm Wasi! <br/>A Software Engineer 😁.",
             autoStart: true,
             wrapperClassName: "typewriter",
             cursorClassName: "typewriterCursor",
@@ -127,7 +155,7 @@ function FaceProfile() {
             rel="noreferrer"
           >
             <FontAwesomeIcon icon={["fab", "github"]} className="ContactIcon" />
-            <span class="toolTiptext">Github</span>
+            <span className="toolTiptext">Github</span>
           </a>
           <a
             className="ContactBox toolTip"
@@ -139,7 +167,7 @@ function FaceProfile() {
               icon={["fab", "linkedin"]}
               className="ContactIcon"
             />
-            <span class="toolTiptext">Linkedin</span>
+            <span className="toolTiptext">Linkedin</span>
           </a>
           <a
             className="ContactBox toolTip"
@@ -148,14 +176,14 @@ function FaceProfile() {
             rel="noreferrer"
           >
             <FontAwesomeIcon icon="envelope" className="ContactIcon" />
-            <span class="toolTiptext">Email</span>
+            <span className="toolTiptext">Email</span>
           </a>
           <a
             className="ContactBox toolTip"
-            href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/WASI_RAZA_Resume.pdf"
+            href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/WASI_RAZA_Resume.PDF"
           >
             <FontAwesomeIcon icon="file" className="ContactIcon" />
-            <span class="toolTiptext">Resume</span>
+            <span className="toolTiptext">Resume</span>
           </a>
         </div>
       </div>
@@ -286,10 +314,48 @@ function Skills() {
             return (
               <div className="SkillsBox toolTip">
                 <div className="SkillsIcon">{Skill[id].version}</div>
-                <div class="toolTiptext">{Skill[id].name}</div>
+                <div className="toolTiptext">{Skill[id].name}</div>
               </div>
             );
           })}
+        </div>
+      </div>
+    </>
+  );
+}
+
+function Projects() {
+  return (
+    <>
+      <p className="Experiencenheading" id="Experienceheading">
+        Projects
+      </p>
+      <div className="globalUseContainer">
+        <div className="ProjectDiv">
+          <RepoCards
+            repoDetails={[
+              {
+                user: "wasmiester",
+                repoName: "wasmiester.github.io",
+                showFullTitle: false,
+              },
+              {
+                user: "CITIZENDOT",
+                repoName: "gh-info",
+                showFullTitle: true,
+              },
+              {
+                user: "CITIZENDOT",
+                repoName: "TestCode",
+                showFullTitle: false,
+              },
+              {
+                user: "CITIZENDOT",
+                repoName: "VCPicker",
+                showFullTitle: false,
+              },
+            ]}
+          />
         </div>
       </div>
     </>
@@ -302,13 +368,15 @@ function Navigation() {
     { name: "Education", iconClass: "fas", icon: "graduation-cap" },
     { name: "Experience", iconClass: "fas", icon: "user-clock" },
     { name: "Skills", iconClass: "fas", icon: "lightbulb" },
+    { name: "Skills", iconClass: "fas", icon: "folder" },
   ];
   const Style = {
     display: "contents",
   };
+  console.log([tabs[2].iconClass, tabs[2].icon]);
   return (
-    <nav class="navigation navbar fixed-bottom ">
-      <div class="container-fluid">
+    <nav className="navigation navbar fixed-bottom ">
+      <div className="container-fluid">
         <Scrollspy
           items={["Home", "Education", "Experience", "Skills"]}
           currentClassName="is-current"
@@ -331,16 +399,18 @@ function Navigation() {
 }
 
 function BgParticles() {
-  const particlesInit = (main) => {
+  const particlesInit = async (main) => {
     console.log(main);
 
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadFull(main);
   };
 
   const particlesLoaded = (container) => {
     console.log(container);
   };
-
   return (
     <Particles
       id="tsparticles"
@@ -374,7 +444,7 @@ function BgParticles() {
         },
         detectRetina: true,
         duration: 0,
-        fpsLimit: 60,
+        fpsLimit: 30,
         interactivity: {
           detectsOn: "window",
           events: {
@@ -843,8 +913,7 @@ function BgParticles() {
       }}
     />
   );
-}
-
+};
 // const lib = ["places"];
 // const id = ["794c38c2d628d148"];
 // const key = "AIzaSyAHJH3DZvncT-tCT1kDruDXfclLg04tBYU"; // PUT GMAP API KEY HERE
