@@ -74,7 +74,7 @@ const containerNav = document.getElementById("navigation");
 const rootNav = createRoot(containerNav); // createRoot(container!) if you use TypeScript
 rootNav.render(<Navigation />);
 
-const containerProjects = document.getElementById("projects");
+const containerProjects = document.getElementById("Projects");
 const rootProjects = createRoot(containerProjects); // createRoot(container!) if you use TypeScript
 rootProjects.render(<Projects />);
 
@@ -331,7 +331,7 @@ function Projects() {
         Projects
       </p>
       <div className="globalUseContainer">
-        <div className="ProjectDiv">
+        <div className="experienceDiv">
           <RepoCards
             repoDetails={[
               {
@@ -340,18 +340,18 @@ function Projects() {
                 showFullTitle: false,
               },
               {
-                user: "CITIZENDOT",
-                repoName: "gh-info",
-                showFullTitle: true,
-              },
-              {
-                user: "CITIZENDOT",
-                repoName: "TestCode",
+                user: "wasmiester",
+                repoName: "AI-Chatbot",
                 showFullTitle: false,
               },
               {
-                user: "CITIZENDOT",
-                repoName: "VCPicker",
+                user: "BCHacks2020",
+                repoName: "Avocado-Quest",
+                showFullTitle: true,
+              },
+              {
+                user: "wasmiester",
+                repoName: "Family-Schedule",
                 showFullTitle: false,
               },
             ]}
@@ -368,7 +368,7 @@ function Navigation() {
     { name: "Education", iconClass: "fas", icon: "graduation-cap" },
     { name: "Experience", iconClass: "fas", icon: "user-clock" },
     { name: "Skills", iconClass: "fas", icon: "lightbulb" },
-    { name: "Skills", iconClass: "fas", icon: "folder" },
+    { name: "Projects", iconClass: "fas", icon: "folder" },
   ];
   const Style = {
     display: "contents",
@@ -378,7 +378,7 @@ function Navigation() {
     <nav className="navigation navbar fixed-bottom ">
       <div className="container-fluid">
         <Scrollspy
-          items={["Home", "Education", "Experience", "Skills"]}
+          items={["Home", "Education", "Experience", "Skills", "Projects"]}
           currentClassName="is-current"
           offset={-100}
           style={Style}
