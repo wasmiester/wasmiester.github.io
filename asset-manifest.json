@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/static/css/main.cff2382f.css",
-    "main.js": "/static/js/main.ea308f9e.js",
+    "main.js": "/static/js/main.b53f818b.js",
     "static/js/937.493985d0.chunk.js": "/static/js/937.493985d0.chunk.js",
     "static/media/ProfilePic.jpg": "/static/media/ProfilePic.fef34457a681299d2197.jpg",
     "static/media/DouglasCollege.png": "/static/media/DouglasCollege.8acd464fb79a1f02e7da.png",
     "static/media/Atomic47.png": "/static/media/Atomic47.9eee071134607aa70353.png",
     "index.html": "/index.html",
     "main.cff2382f.css.map": "/static/css/main.cff2382f.css.map",
-    "main.ea308f9e.js.map": "/static/js/main.ea308f9e.js.map",
+    "main.b53f818b.js.map": "/static/js/main.b53f818b.js.map",
     "937.493985d0.chunk.js.map": "/static/js/937.493985d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cff2382f.css",
-    "static/js/main.ea308f9e.js"
+    "static/js/main.b53f818b.js"
   ]
 }
