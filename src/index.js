@@ -249,12 +249,15 @@ function Experience() {
             <div className="experienceDetail">
               <br />• Developed, tested, and documented functionality of Nest.js
               API to add, delete, and modify end user profiles. <br />•
-              Documented Rest API endpoint that would retrieve a receipt of what
-              cryptocurrency the user was holding, buying, or selling. <br />•
-              Made a new user sign-in portal using the React.js framework.
-              <br /> • Made a React dashboard component that would dynamically
-              set user's time zone based on their browser.
-              <br /> • Used Postman to automate testing HTTP API requests.
+              Implemented REST API endpoints that would retrieve the end-user’s
+              cryptocurrency transactions receipts. <br />• Documented API
+              endpoints that handled database manipulation end-user profile
+              management and transactions. <br />• Added a new sign-in portal
+              using React to save millions of users three clicks per
+              interaction. <br />• Developed a React dashboard component that
+              dynamically sets the user’s time zone based on their browser.
+              <br />• Automated HTTP API requests using Postman to increase test
+              coverage by 95%
               <br />
             </div>
           </div>
@@ -262,18 +265,17 @@ function Experience() {
           <div className="experienceCard">
             <img src={UBCLogo} className="experiencePic" alt="UBC" />
             <br />
-            Lead Full Stack API Developer
+            Full Stack Developer
             <br />
             Sept 2019 – Dec2020
             <div className="experienceDetail">
-              <br />• Designed and built a bio-data research platform <br />•
-              Used HTML and CSS to design front end web pages <br />• Utilized
-              JavaScript to construct input logic for relational databases
-              focused on patient information.
-              <br />• Used PHP and SQL to develop databases and data analysis
-              tools. <br />• Helped code and test full-stack Joomla-based web
-              application software based on Agile Scrum and Kanban approaches.
-              <br />• Wrote unit tests and corrected quality assurance concerns.
+              <br />• Designed and built a research platform to record, store
+              and analyze bio-data by myself. <br />• Corrected quality
+              assurance concerns while in direct contact with client in an agile
+              environment. <br />• Employed HTML and CSS to design front end web
+              pages. <br />• Developed relational databases and data analysis
+              tools using PHP and SQL to examine patient data. <br />• Wrote
+              unit tests that gave 98% coverage.
               <br />
             </div>
           </div>
