@@ -2693,7 +2693,7 @@
   "resolved" "https://registry.npmjs.org/animate.css/-/animate.css-4.1.1.tgz"
   "version" "4.1.1"
 
-"animejs@^3.2.1", "animejs@^3.2.x":
+"animejs@^3.2.1":
   "integrity" "sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A=="
   "resolved" "https://registry.npmjs.org/animejs/-/animejs-3.2.1.tgz"
   "version" "3.2.1"
@@ -9129,13 +9129,6 @@
     "ini" "~1.3.0"
     "minimist" "^1.2.0"
     "strip-json-comments" "~2.0.1"
-
-"react-anime@^4.1.1":
-  "integrity" "sha512-w6oe/6PZ3Swm2Z0EKvawJzvK8iN2gC0NbevjSIEguxY8KuDg/HaDROksLHVrPO5tFpRSEQg2jzy48gcfquDREQ=="
-  "resolved" "https://registry.npmjs.org/react-anime/-/react-anime-4.1.1.tgz"
-  "version" "4.1.1"
-  dependencies:
-    "animejs" "^3.2.x"
 
 "react-app-polyfill@^3.0.0":
   "integrity" "sha512-sZ41cxiU5llIB003yxxQBYrARBqe0repqPTTYBTmMqTz9szeBbE37BehCE891NZsmdZqqP+xWKdT3eo3vOzN8w=="
