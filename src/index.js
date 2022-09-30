@@ -180,7 +180,7 @@ function FaceProfile() {
           </a>
           <a
             className="ContactBox toolTip"
-            href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/WASI_RAZA_Resume.pdf"
+            href="https://github.com/wasmiester/wasmiester.github.io/raw/main/src/Wasi_Raza_Resume.pdf"
           >
             <FontAwesomeIcon icon="file" className="ContactIcon" />
             <span className="toolTiptext">Resume</span>
