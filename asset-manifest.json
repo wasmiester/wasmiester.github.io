@@ -1,18 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.cff2382f.css",
-    "main.js": "/static/js/main.98e47bf7.js",
-    "static/js/937.493985d0.chunk.js": "/static/js/937.493985d0.chunk.js",
+    "main.css": "/static/css/main.5f277172.css",
+    "main.js": "/static/js/main.dcff1f82.js",
     "static/media/ProfilePic.jpg": "/static/media/ProfilePic.fef34457a681299d2197.jpg",
     "static/media/DouglasCollege.png": "/static/media/DouglasCollege.8acd464fb79a1f02e7da.png",
     "static/media/Atomic47.png": "/static/media/Atomic47.9eee071134607aa70353.png",
     "index.html": "/index.html",
-    "main.cff2382f.css.map": "/static/css/main.cff2382f.css.map",
-    "main.98e47bf7.js.map": "/static/js/main.98e47bf7.js.map",
-    "937.493985d0.chunk.js.map": "/static/js/937.493985d0.chunk.js.map"
+    "main.5f277172.css.map": "/static/css/main.5f277172.css.map",
+    "main.dcff1f82.js.map": "/static/js/main.dcff1f82.js.map"
   },
   "entrypoints": [
-    "static/css/main.cff2382f.css",
-    "static/js/main.98e47bf7.js"
+    "static/css/main.5f277172.css",
+    "static/js/main.dcff1f82.js"
   ]
 }
