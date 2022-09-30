@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.5f277172.css",
-    "main.js": "/static/js/main.ac5ee28a.js",
+    "main.js": "/static/js/main.d1733f6c.js",
     "static/media/ProfilePic.jpg": "/static/media/ProfilePic.fef34457a681299d2197.jpg",
     "static/media/DouglasCollege.png": "/static/media/DouglasCollege.8acd464fb79a1f02e7da.png",
     "static/media/Atomic47.png": "/static/media/Atomic47.9eee071134607aa70353.png",
     "index.html": "/index.html",
     "main.5f277172.css.map": "/static/css/main.5f277172.css.map",
-    "main.ac5ee28a.js.map": "/static/js/main.ac5ee28a.js.map"
+    "main.d1733f6c.js.map": "/static/js/main.d1733f6c.js.map"
   },
   "entrypoints": [
     "static/css/main.5f277172.css",
-    "static/js/main.ac5ee28a.js"
+    "static/js/main.d1733f6c.js"
   ]
 }
