@@ -1,0 +1,33 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change 'main' to your default branch name if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js environment (if needed)
+      uses: actions/setup-node@v2
+      with:
+        node-version: '17'  # Specify the Node.js version if required
+
+    - name: Install dependencies
+      run: |
+        npm install  # Change this line if you're using a different package manager
+
+    - name: Build site
+      run: |
+        npm run build  # Change this line to the command that builds your site
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build  # Change 'build' to your build directory
