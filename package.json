@@ -3,6 +3,10 @@
   "homepage": "https://wasmiester.github.io/",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18.17.0",
+    "npm": "9.6.7"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
