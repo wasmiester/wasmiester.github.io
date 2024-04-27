@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm install --legacy-peer-deps  # Change this line if you're using a different package manager
+        CI=false npm install --legacy-peer-deps  # Change this line if you're using a different package manager
 
     - name: Build site
       run: |
