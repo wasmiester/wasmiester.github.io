@@ -16,7 +16,7 @@ jobs:
     - name: Setup Node.js environment (if needed)
       uses: actions/setup-node@v2
       with:
-        node-version: '17'  # Specify the Node.js version if required
+        node-version: '18.17.0'  # Specify the Node.js version if required
 
     - name: Install dependencies
       run: |
