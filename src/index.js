@@ -20,6 +20,7 @@ import "react-gh-repo-cards/dist/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/style.scss";
 
+import zema from "./ZEMA.png"
 import Atomic47 from "./Atomic47.png";
 import UBCLogo from "./UBC-logo-2018-crest-white-rgb72.png";
 import DouglasCollege from "./DouglasCollege.png";
@@ -34,6 +35,7 @@ import {
   DiReact,
   DiNodejsSmall,
   DiMysql,
+  DiJira,
 } from "react-icons/di";
 
 import {
@@ -45,6 +47,7 @@ import {
   SiFlutter,
   SiDart,
   SiFirebase,
+  SiJira
 } from "react-icons/si";
 
 
@@ -68,7 +71,7 @@ rootExperience.render(<Experience />);
 
 const containerSkills = document.getElementById("Skills");
 const rootSkills = createRoot(containerSkills); // createRoot(container!) if you use TypeScript
-rootSkills.render(<Skills />);
+rootSkills.render(<Skills/>);
 
 const containerNav = document.getElementById("navigation");
 const rootNav = createRoot(containerNav); // createRoot(container!) if you use TypeScript
@@ -241,6 +244,32 @@ function Experience() {
       <div className="globalUseContainer">
         <div className="experienceDiv">
           <div className="experienceCard">
+            <img src={zema} className="experiencePic" alt="ZEPowerGroup" />
+            <br />
+            Java Developer I
+            <br />
+            Jan 2021 – April 2021
+            <div className="experienceDetail">
+              <br />• Conducted investigations, code reviews, and implemented
+              solutions on an industrial-scale Oracle and SQL database, managing
+              millions of CRUD operations per minute <br />• Created and
+              maintained Java application modules to efficiently perform ETL
+              functions of data from diverse sources such as JSON, CSV, HTML,
+              XML, APIs, and emails, processing billions of entries per day
+              <br />• Developed automated test tools to enhance software quality
+              and reliability, resulting in a 95\% increase in testing
+              efficiency <br />• Participated in client meetings to ensure a
+              clear understanding of client requirements and to align
+              development efforts with client expectations <br />• Handled
+              off-hour calls on a rotational basis, demonstrating dedication to
+              ensuring system stability and availability round the clock
+              <br />• Automated HTTP API requests using Postman to increase test
+              coverage by 95%
+              <br />
+            </div>
+          </div>
+
+          <div className="experienceCard">
             <img src={Atomic47} className="experiencePic" alt="Atomic47" />
             <br />
             Software Developer Intern
@@ -287,6 +316,7 @@ function Experience() {
 
 function Skills() {
   const Skill = [
+    { name: "Jira", version: <SiJira /> },
     { name: "Java", version: <DiJava /> },
     { name: "Php", version: <DiPhp /> },
     { name: "JavaScript", version: <SiJavascript /> },
