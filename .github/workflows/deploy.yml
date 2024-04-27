@@ -24,7 +24,7 @@ jobs:
 
     - name: Build site
       run: |
-        npm run build  # Change this line to the command that builds your site
+        CI=false npm run build  # Change this line to the command that builds your site
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
