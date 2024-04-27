@@ -246,7 +246,7 @@ function Experience() {
             <br />
             Java Developer I
             <br />
-            Jan 2021 – April 2021
+            Feb 2023 – Apr 2024
             <div className="experienceDetail">
               <br />• Conducted investigations, code reviews, and implemented
               solutions on an industrial-scale Oracle and SQL database, managing
@@ -255,7 +255,7 @@ function Experience() {
               functions of data from diverse sources such as JSON, CSV, HTML,
               XML, APIs, and emails, processing billions of entries per day
               <br />• Developed automated test tools to enhance software quality
-              and reliability, resulting in a 95\% increase in testing
+              and reliability, resulting in a 95% increase in testing
               efficiency <br />• Participated in client meetings to ensure a
               clear understanding of client requirements and to align
               development efforts with client expectations <br />• Handled
@@ -272,7 +272,7 @@ function Experience() {
             <br />
             Software Developer Intern
             <br />
-            Jan 2021 – April 2021
+            Jan 2021 – Apr 2021
             <div className="experienceDetail">
               <br />• Developed, tested, and documented functionality of Nest.js
               API to add, delete, and modify end user profiles. <br />•
@@ -294,7 +294,7 @@ function Experience() {
             <br />
             Full Stack Developer
             <br />
-            Sept 2019 – Dec2020
+            Sept 2019 – Dec 2020
             <div className="experienceDetail">
               <br />• Designed and built a research platform to record, store
               and analyze bio-data by myself. <br />• Corrected quality
